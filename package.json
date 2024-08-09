@@ -1,6 +1,7 @@
 {
   "name": "dashdine-frontend",
   "private": true,
+  "one": "more",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
