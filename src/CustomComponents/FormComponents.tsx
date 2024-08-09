@@ -94,7 +94,7 @@ function makeCustomField<FieldType>(
 function statusFromProps<FieldType>(props: FieldRenderProps<FieldType>) {
   return props.meta.error && (props.meta.touched || props.meta.modified)
     ? "error"
-    : undefined;
+    : "";
 }
 
 export const TextInputField: CustomField = (customProps: CustomFieldProps) => {

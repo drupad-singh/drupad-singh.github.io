@@ -1,4 +1,4 @@
-import { ClientCreate } from "../types/Client";
+import { Merchant } from "../types/Client";
 
 // type Serializable<Data> = {
 //   serialize: (data: Data) => string,
@@ -30,4 +30,4 @@ export function createStore<Data>(key: string): Storage<Data> {
   };
 }
 
-export const ClientDetailsStorage: Storage<[ClientCreate]> = createStore("clientDetails")
+export const ClientDetailsStorage: Storage<[Merchant]> = createStore("clientDetails")

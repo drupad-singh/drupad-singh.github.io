@@ -35,10 +35,11 @@ export function Navbar() {
   return (
     <div>
       <Menu
-        defaultSelectedKeys={[1]}
+        defaultSelectedKeys={[NavItem.ClientOnboarding]}
         mode="inline"
         items={items}
         onClick={({ key }) => {
+          //@ts-ignore
           setSelectedNavItem(key);
         }}
       />
