@@ -26,9 +26,11 @@ const columns: TableProps<Merchant>["columns"] = [
     dataIndex: "address",
     title: "Address",
     render: (item: Address) =>
-      `${item.address1} ${item.address2 || ""}, ${item.city} ${item.state}, ${
-        item.country
-      }`,
+      item.address
+        ? `${item.address1} ${item.address2 || ""}, ${item.city} ${
+            item.state
+          }, ${item.country}`
+        : "",
   },
 ];
 
