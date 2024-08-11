@@ -9,17 +9,17 @@ const items: MenuItem[] = [
   {
     key: "1",
     icon: <MailOutlined />,
-    label: "Client Management",
+    label: "Merchant Management",
     children: [
       {
-        key: NavItem.ClientOnboarding,
+        key: NavItem.MerchantOnboarding,
         icon: <UserAddOutlined />,
-        label: "Add New Client",
+        label: "Add New Merchant",
       },
       {
-        key: NavItem.ClientList,
+        key: NavItem.MerchantList,
         icon: <UserOutlined />,
-        label: "Onboarded Clients",
+        label: "Onboarded Merchants",
       },
     ],
   },
@@ -35,7 +35,7 @@ export function Navbar() {
   return (
     <div>
       <Menu
-        defaultSelectedKeys={[NavItem.ClientOnboarding]}
+        defaultSelectedKeys={[NavItem.MerchantOnboarding]}
         mode="inline"
         items={items}
         onClick={({ key }) => {

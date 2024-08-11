@@ -87,6 +87,7 @@ export type BankDetails = {
 }
 
 export type Merchant = {
+  id: string,
   name: string,
   phoneNumber: string,
   countryCode: string,

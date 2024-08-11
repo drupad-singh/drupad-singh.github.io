@@ -1,15 +1,16 @@
 import { Form, useFormState } from "react-final-form";
-import { Merchant } from "../types/Client";
+import { Merchant } from "../types/Merchant";
 import {} from "../CustomComponents/FormComponents";
 import { Button, Card, Collapse, Row, Space } from "antd";
 import { PersonalDetails } from "./PersonalDetails";
 import { AddressDetails } from "./AddressDetails";
 import { useState } from "react";
-import { ClientDetailsStorage } from "../Storage/LocalStorage";
-import { Maybe } from "../CustomComponents/Core";
+import { merchantDetailsStorage } from "../Storage/LocalStorage";
+import { maybe, Maybe } from "../CustomComponents/Core";
 import { FinancialDetails } from "./FinancialDetails";
 import { BankDetails } from "./BankDetails";
 import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
+import { v4 as uuidv4 } from "uuid";
 
 function FormStateDisplay() {
   const formState = useFormState();
@@ -24,9 +25,11 @@ enum Details {
   BankDetails,
 }
 
-export function ClientOnboarding() {
+export function MerchantOnboarding() {
   const [currentSection, setCurrentSection] = useState(Details.PersonalDetails);
-  const [clientDetails, setClientDetails] = useState({ countryCode: "+91" });
+  const [merchantDetails, setMerchantDetails] = useState({
+    countryCode: "+91",
+  });
   const [currentItems, setCurrentItems] = useState([
     {
       key: Details.PersonalDetails,
@@ -80,14 +83,15 @@ export function ClientOnboarding() {
     },
   ];
 
-  const handleFormSubmit = (values: Merchant) => {
-    setClientDetails(values);
-    const savedClientDetails = ClientDetailsStorage.fetch();
-    if (savedClientDetails != null) {
-      savedClientDetails.push(values);
-      ClientDetailsStorage.save(savedClientDetails);
+  const handleFormSubmit = (values: JSON) => {
+    const merchant: Merchant = { id: uuidv4(), ...values };
+    setMerchantDetails(merchant);
+    const savedMerchantDetails = merchantDetailsStorage.fetch();
+    if (savedMerchantDetails != null) {
+      savedMerchantDetails.push(merchant);
+      merchantDetailsStorage.save(savedMerchantDetails);
     } else {
-      ClientDetailsStorage.save([values]);
+      merchantDetailsStorage.save([merchant]);
     }
   };
 
@@ -108,7 +112,7 @@ export function ClientOnboarding() {
   return (
     <Form
       onSubmit={handleFormSubmit}
-      initialValues={clientDetails}
+      initialValues={merchantDetails}
       validate={formValidator}
     >
       {(prop) => (

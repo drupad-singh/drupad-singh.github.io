@@ -4,9 +4,11 @@ import { Content } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
 import { Heading } from "./Heading";
 import { geekblue } from "@ant-design/colors";
-import { useRecoilValue } from "recoil";
-import { LayoutState, selectedNavItem } from "./RecoilState";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { LayoutState, NavItem, SelectedNavItem } from "./RecoilState";
 import { ContentProvider } from "./ContentProvider";
+import { Screen } from "./types/Screen";
+import React, { Component, PropsWithChildren, useEffect } from "react";
 
 const contentStyle: React.CSSProperties = {
   backgroundColor: geekblue[0],
@@ -24,8 +26,29 @@ const layoutStyle = {
   width: "100%",
   height: "100%",
 };
+type props = {
+  screen: Screen;
+};
 
-export function Homepage() {
+export const Homepage: React.FC<props> = ({ screen }) => {
+  const [selectedNavItem, setSelectedNavItem] = useRecoilState(SelectedNavItem);
+  useEffect(() => {
+    // TODO: update url when navitem changes
+
+    // set navbar state on routing changes
+    switch (screen) {
+      case Screen.MerchantDeleteScreen:
+        break;
+      case Screen.MerchantOnboardingScreen:
+        setSelectedNavItem(NavItem.MerchantOnboarding);
+        break;
+      case Screen.MerchantListScreen:
+        setSelectedNavItem(NavItem.MerchantList);
+        break;
+      case Screen.MerchantUpdateScreen:
+        setSelectedNavItem(NavItem.MerchantOnboarding);
+    }
+  }, [screen, setSelectedNavItem]);
   const isCollapsed = useRecoilValue(LayoutState);
   return (
     <Layout style={layoutStyle}>
@@ -47,4 +70,4 @@ export function Homepage() {
       </Layout>
     </Layout>
   );
-}
+};

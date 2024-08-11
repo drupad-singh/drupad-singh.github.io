@@ -4,7 +4,7 @@ import {
   SelectInput,
   TextInputField,
 } from "../CustomComponents/FormComponents";
-import { AllCountryCodes } from "../types/Client";
+import { AllCountryCodes } from "../types/Merchant";
 import { FormGrid } from "../CustomComponents/FormGrid";
 
 export function PersonalDetails() {

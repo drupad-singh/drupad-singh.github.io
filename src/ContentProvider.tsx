@@ -1,7 +1,7 @@
 import { useRecoilValue } from "recoil";
-import { ClientOnboarding } from "./ClientOnboarding/ClientOnboarding";
+import { MerchantOnboarding } from "./MerchantOnboarding/MerchantOnboarding";
 import { NavItem, selectedNavItem } from "./RecoilState";
-import { ClientList } from "./ClientList/ClientList";
+import { MerchantList } from "./MerchantList/MerchantList";
 import { useEffect, useState } from "react";
 
 export function ContentProvider() {
@@ -11,11 +11,11 @@ export function ContentProvider() {
   useEffect(() => {
     console.log("nav selected", selectedItem);
     switch (selectedItem) {
-      case NavItem.ClientOnboarding:
-        setDom(<ClientOnboarding />);
+      case NavItem.MerchantOnboarding:
+        setDom(<MerchantOnboarding />);
         break;
-      case NavItem.ClientList:
-        setDom(<ClientList />);
+      case NavItem.MerchantList:
+        setDom(<MerchantList />);
         break;
       default:
         setDom(<></>);
