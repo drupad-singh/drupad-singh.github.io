@@ -3,9 +3,9 @@ import {
   NumberInputField,
   SelectInput,
   TextInputField,
-} from "../CustomComponents/FormComponents";
-import { AllCountryCodes } from "../types/Merchant";
-import { FormGrid } from "../CustomComponents/FormGrid";
+} from "../../components/FormComponents";
+import { FormGrid } from "../../components/FormGrid";
+import { AllCountryCodes } from "../../types/Merchant";
 
 export function PersonalDetails() {
   return (

@@ -1,10 +1,18 @@
 import CountryCodes from "../assets/countryCode.json"
-import { Maybe, maybe } from "../CustomComponents/Core"
+import { Maybe, maybe } from "../utils/Core"
 
 export type CountryCode = {
   name: string,
   dial_code: string,
   code: string
+}
+
+
+export enum Details {
+  AddressDetails,
+  PersonalDetails,
+  FinancialDetails,
+  BankDetails,
 }
 
 //@ts-ignore

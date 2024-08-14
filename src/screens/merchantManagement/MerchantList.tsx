@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { merchantDetailsStorage } from "../Storage/LocalStorage";
-import { Address, Merchant } from "../types/Merchant";
+import { merchantDetailsStorage } from "../../storage/LocalStorage";
+import { Address, Merchant } from "../../types/Merchant";
 import {
   Button,
   Empty,
@@ -10,14 +10,15 @@ import {
   TableProps,
   Typography,
 } from "antd";
-import { maybe } from "../CustomComponents/Core";
+import { maybe } from "../../utils/Core";
 import { CodeBlock, dracula } from "react-code-blocks";
 import { useNavigate } from "react-router-dom";
+import { ColumnsType } from "antd/es/table";
 
-const columns: (
+const columns = (
   editAction: (m: Merchant) => void,
   deleteAction: (m: Merchant) => void
-) => TableProps<Merchant>["columns"] = (editAction, deleteAction) => [
+): ColumnsType<Merchant> => [
   {
     dataIndex: "name",
     title: "Name",
@@ -47,7 +48,7 @@ const columns: (
   },
   {
     title: "Action",
-    key: "operation",
+    key: "action",
     fixed: "right",
     width: 100,
     render: (_, record) => {
@@ -77,7 +78,7 @@ export function MerchantList() {
   };
 
   const onEditAction = (merchant: Merchant) => {
-    navigate(merchant.name + "/update");
+    navigate(`/${merchant.id}/update`);
   };
   const onDeleteAction = (merchant: Merchant) => {};
 
@@ -97,6 +98,7 @@ export function MerchantList() {
         expandable={{
           expandedRowRender,
         }}
+        rowKey={(record) => record.id}
       />
     );
   }

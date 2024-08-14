@@ -1,8 +1,8 @@
 import {
   NumberInputField,
   TextInputField,
-} from "../CustomComponents/FormComponents";
-import { FormGrid } from "../CustomComponents/FormGrid";
+} from "../../components/FormComponents";
+import { FormGrid } from "../../components/FormGrid";
 
 export function BankDetails() {
   return (

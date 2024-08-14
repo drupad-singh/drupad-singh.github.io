@@ -1,9 +1,6 @@
 import { Button, GetProp, message, Upload, UploadProps } from "antd";
-import {
-  ImageUpload,
-  TextInputField,
-} from "../CustomComponents/FormComponents";
-import { FormGrid } from "../CustomComponents/FormGrid";
+import { ImageUpload, TextInputField } from "../components/FormComponents";
+import { FormGrid } from "../components/FormGrid";
 import {
   CloudUploadOutlined,
   LoadingOutlined,

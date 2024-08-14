@@ -2,7 +2,7 @@ import { red } from "@ant-design/colors";
 import { DribbbleOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import { Col, Row, Typography } from "antd";
 import { useRecoilState } from "recoil";
-import { LayoutState } from "./RecoilState";
+import { LayoutState } from "./storage/RecoilState";
 
 const { Title } = Typography;
 export function Heading() {

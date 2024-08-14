@@ -3,3 +3,10 @@ export const FormDimens = {
   gutterSizeY: 48,
   colSpan: 8
 }
+
+export enum Screen {
+  MerchantOnboardingScreen,
+  MerchantListScreen,
+MerchantUpdateScreen,
+MerchantDeleteScreen
+}

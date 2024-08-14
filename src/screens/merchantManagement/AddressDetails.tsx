@@ -1,11 +1,11 @@
-import { useField, useForm, useFormState } from "react-final-form";
+import { useField, useForm } from "react-final-form";
+import pincodeDir from "india-pincode-lookup";
+import { useEffect } from "react";
+import { FormGrid } from "../../components/FormGrid";
 import {
   NumberInputField,
   TextInputField,
-} from "../CustomComponents/FormComponents";
-import { FormGrid } from "../CustomComponents/FormGrid";
-import pincodeDir from "india-pincode-lookup";
-import { useEffect } from "react";
+} from "../../components/FormComponents";
 
 export function AddressDetails() {
   const form = useForm();

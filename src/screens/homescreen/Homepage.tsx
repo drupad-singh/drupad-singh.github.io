@@ -1,14 +1,19 @@
 import { Layout } from "antd";
-import { Navbar } from "./Navbar";
+
 import { Content } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
-import { Heading } from "./Heading";
+import { Heading } from "../../Heading";
 import { geekblue } from "@ant-design/colors";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { LayoutState, NavItem, SelectedNavItem } from "./RecoilState";
+import {
+  LayoutState,
+  NavItem,
+  SelectedNavItem,
+} from "../../storage/RecoilState";
 import { ContentProvider } from "./ContentProvider";
-import { Screen } from "./types/Screen";
-import React, { Component, PropsWithChildren, useEffect } from "react";
+import React, { useEffect } from "react";
+import { Screen } from "../../Constants";
+import { Navbar } from "./Navbar";
 
 const contentStyle: React.CSSProperties = {
   backgroundColor: geekblue[0],
@@ -31,10 +36,9 @@ type props = {
 };
 
 export const Homepage: React.FC<props> = ({ screen }) => {
-  const [selectedNavItem, setSelectedNavItem] = useRecoilState(SelectedNavItem);
+  const [_, setSelectedNavItem] = useRecoilState(SelectedNavItem);
   useEffect(() => {
     // TODO: update url when navitem changes
-
     // set navbar state on routing changes
     switch (screen) {
       case Screen.MerchantDeleteScreen:
@@ -46,10 +50,12 @@ export const Homepage: React.FC<props> = ({ screen }) => {
         setSelectedNavItem(NavItem.MerchantList);
         break;
       case Screen.MerchantUpdateScreen:
-        setSelectedNavItem(NavItem.MerchantOnboarding);
+        setSelectedNavItem(NavItem.Nothing);
     }
-  }, [screen, setSelectedNavItem]);
+  }, [screen]);
+
   const isCollapsed = useRecoilValue(LayoutState);
+
   return (
     <Layout style={layoutStyle}>
       <Heading />
@@ -62,10 +68,10 @@ export const Homepage: React.FC<props> = ({ screen }) => {
           collapsedWidth={0}
           collapsed={isCollapsed}
         >
-          <Navbar />
+          <Navbar screen={screen} />
         </Sider>
         <Content style={contentStyle}>
-          <ContentProvider />
+          <ContentProvider screen={screen} />
         </Content>
       </Layout>
     </Layout>

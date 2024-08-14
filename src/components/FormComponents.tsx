@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 import { Field, FieldRenderProps } from "react-final-form";
 import { CloudUploadOutlined } from "@ant-design/icons";
-import { Maybe } from "./Core";
+import { Maybe } from "../utils/Core";
 
 type fieldError = string;
 

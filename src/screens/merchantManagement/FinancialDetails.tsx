@@ -1,5 +1,5 @@
-import { TextInputField } from "../CustomComponents/FormComponents";
-import { FormGrid } from "../CustomComponents/FormGrid";
+import { TextInputField } from "../../components/FormComponents";
+import { FormGrid } from "../../components/FormGrid";
 
 export function FinancialDetails() {
   return (

@@ -1,15 +1,15 @@
-import { Router, RouterProvider } from "react-router-dom";
-import { Homepage } from "./Homepage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Homepage } from "./screens/homescreen/Homepage";
 import { RecoilRoot } from "recoil";
-import { Screen } from "./types/Screen";
+import { Screen } from "./Constants";
 
-const router = [
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Homepage screen={Screen.MerchantOnboardingScreen} />,
   },
   {
-    path: "/merchant/list",
+    path: "/merchant/create",
     element: <Homepage screen={Screen.MerchantOnboardingScreen} />,
   },
   {
@@ -24,7 +24,7 @@ const router = [
     path: "/:merchantId/delete",
     element: <Homepage screen={Screen.MerchantDeleteScreen} />,
   },
-];
+]);
 
 function App() {
   return (

@@ -3,6 +3,7 @@ import Recoil from "recoil";
 export enum NavItem {
   MerchantOnboarding = "merchant_onboarding",
   MerchantList = "merchant_list",
+  Nothing = "nothing",
 }
 
 export const LayoutState = Recoil.atom({
@@ -11,6 +12,6 @@ export const LayoutState = Recoil.atom({
 });
 
 export const SelectedNavItem = Recoil.atom({
-  key: "selecteNavItem",
+  key: "selectedNavItem",
   default: NavItem.MerchantOnboarding,
 });
