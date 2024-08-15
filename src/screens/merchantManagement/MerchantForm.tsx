@@ -58,27 +58,34 @@ export function MerchantForm({
         label: "Address Details",
         children: <AddressDetails />,
         extra: deleteButton(Details.AddressDetails),
-        visibility: merchantDetails.addressDetails,
+        visibility: merchantDetails["address"] != undefined,
       },
       {
         key: Details.FinancialDetails,
         label: "Financial Details",
         children: <FinancialDetails />,
         extra: deleteButton(Details.FinancialDetails),
-        visibility: merchantDetails.financialDetails,
+        visibility: merchantDetails["financialDetails"] != undefined,
       },
       {
         key: Details.BankDetails,
         label: "Bank Details",
         children: <BankDetails />,
         extra: deleteButton(Details.BankDetails),
-        visibility: merchantDetails.bankDetails,
+        visibility: merchantDetails["bankDetails"] != undefined,
       },
     ];
   }, [merchantDetails]);
 
-  const [currentAccordions, setCurrentAccordions] = useState(
-    accordionItems.filter((item) => item.visibility)
+  const [currentAccordions, setCurrentAccordions] = useState([]);
+  useEffect(() => {
+    setCurrentAccordions(accordionItems.filter((item) => item.visibility));
+  }, [accordionItems]);
+  console.log(
+    "currentAccordions",
+    currentAccordions,
+    merchantDetails,
+    accordionItems
   );
 
   const addDetailsButton = () =>

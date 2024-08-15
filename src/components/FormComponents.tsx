@@ -23,6 +23,7 @@ type fieldOption<DataType> = {
 };
 
 type validateFn = (value: string) => fieldError;
+
 type CustomFieldProps<FieldSpecificProps extends object = {}> = {
   label: string;
   name: string;
