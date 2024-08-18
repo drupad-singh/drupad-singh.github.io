@@ -48,14 +48,12 @@ export function Navbar() {
   };
 
   return (
-    <div>
-      <Menu
-        selectedKeys={[selectedNavItem]}
-        openKeys={["1"]}
-        mode="inline"
-        items={items}
-        onClick={onMenuItemClick}
-      />
-    </div>
+    <Menu
+      selectedKeys={[selectedNavItem]}
+      defaultOpenKeys={["1"]}
+      mode="inline"
+      items={items}
+      onClick={onMenuItemClick}
+    />
   );
 }

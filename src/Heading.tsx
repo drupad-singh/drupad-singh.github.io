@@ -16,8 +16,10 @@ export function Heading() {
           justify={"start"}
         >
           <UnorderedListOutlined
-            onClick={() => {
+            onClick={(ev) => {
               setCollpased(!collapsed);
+              ev.preventDefault();
+              ev.stopPropagation();
             }}
           />
         </Row>

@@ -11,7 +11,7 @@ import {
   SelectedNavItem,
 } from "../../storage/RecoilState";
 import { ContentProvider } from "./ContentProvider";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Screen } from "../../Constants";
 import { Navbar } from "./Navbar";
 
@@ -37,6 +37,7 @@ type props = {
 
 export const Homepage: React.FC<props> = ({ screen }) => {
   const [_, setSelectedNavItem] = useRecoilState(SelectedNavItem);
+  const [collapsed, setCollpased] = useRecoilState(LayoutState);
   useEffect(() => {
     // TODO: update url when navitem changes
     // set navbar state on routing changes
@@ -49,24 +50,31 @@ export const Homepage: React.FC<props> = ({ screen }) => {
       case Screen.MerchantListScreen:
         setSelectedNavItem(NavItem.MerchantList);
         break;
-      case Screen.MerchantUpdateScreen:
+      default:
         setSelectedNavItem(NavItem.Nothing);
     }
   }, [screen]);
-
-  const isCollapsed = useRecoilValue(LayoutState);
 
   return (
     <Layout style={layoutStyle}>
       <Heading />
       <Layout>
         <Sider
-          width="300px"
+          width={"300px"}
           style={siderStyle}
+          collapsed={collapsed}
+          onCollapse={(isCollpased) => setCollpased(isCollpased)}
           collapsible={true}
           trigger={null}
-          collapsedWidth={0}
-          collapsed={isCollapsed}
+          collapsedWidth={"100px"}
+          onMouseEnter={ev => {
+            setCollpased(false)
+            ev.stopPropagation()
+          }}
+          onMouseLeave={ev => {
+            setCollpased(true)
+            ev.stopPropagation()
+          }}
         >
           <Navbar screen={screen} />
         </Sider>

@@ -5,7 +5,7 @@ import { merchantDetailsStorage } from "../../storage/LocalStorage";
 
 export function MerchantOnboarding() {
   const merchantDetails = {
-    countryCode: "+91",
+    countryCode: "+91 (India)",
   };
 
   const handleFormSubmit = (updatedMerchantDetails: Merchant) => {

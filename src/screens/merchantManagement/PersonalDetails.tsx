@@ -1,4 +1,3 @@
-import { Space } from "antd";
 import {
   EmailInput,
   NumberInputField,
@@ -22,34 +21,30 @@ export function PersonalDetails() {
           name: "email",
           required: true,
         }),
-        <Space>
-          {[
-            SelectInput({
-              label: "Country Code",
-              name: "countryCode",
-              defaultValue: "+91",
-              width: 100,
-              options: AllCountryCodes.map((c) => {
-                return {
-                  label: c.dial_code,
-                  value: c.dial_code,
-                  rowData: c,
-                };
-              }),
-              optionRender: (opt) => {
-                return (
-                  <span>{`${opt.data.rowData.name} (${opt.data.value})`}</span>
-                );
-              },
-              required: true,
-            }),
-            NumberInputField({
-              label: "Phone Number",
-              name: "phoneNumber",
-              required: true,
-            }),
-          ]}
-        </Space>,
+        SelectInput({
+          label: "Country Code",
+          name: "countryCode",
+          defaultValue: "+91 (India)",
+          width: 150,
+          options: AllCountryCodes.map((c) => {
+            return {
+              label: `${c.dial_code} (${c.name})`,
+              value: `${c.dial_code} (${c.name})`,
+              rowData: c,
+            };
+          }),
+          // optionRender: (opt) => {
+          //   return (
+          //     <span>{`${opt.data.rowData.name} (${opt.data.value})`}</span>
+          //   );
+          // },
+          required: true,
+        }),
+        NumberInputField({
+          label: "Phone Number",
+          name: "phoneNumber",
+          required: true,
+        }),
       ]}
     />
   );

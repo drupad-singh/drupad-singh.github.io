@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { MerchantOnboarding } from "../merchantManagement/MerchantOnboarding";
 import { MerchantUpdate } from "../merchantManagement/MerchantUpdate";
 import { Screen } from "../../Constants";
+import MenuItem from "antd/es/menu/MenuItem";
+import { Menu } from "../menuScreen/Menu";
 
 export function ContentProvider({ screen }): React.ReactElement<Screen> {
   const [dom, setDom] = useState(<></>);
@@ -17,9 +19,12 @@ export function ContentProvider({ screen }): React.ReactElement<Screen> {
       case Screen.MerchantUpdateScreen:
         setDom(<MerchantUpdate />);
         break;
+      case Screen.RestaurantMenuScreen:
+        setDom(<Menu />);
+        break;
       default:
         setDom(<></>);
     }
   }, [screen]);
-  return dom;
+  return <div style={{ padding: "20px" }}>{dom}</div>;
 }

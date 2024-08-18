@@ -24,6 +24,10 @@ const router = createBrowserRouter([
     path: "/:merchantId/delete",
     element: <Homepage screen={Screen.MerchantDeleteScreen} />,
   },
+  {
+    path: "/menu",
+    element: <Homepage screen={Screen.RestaurantMenuScreen} />,
+  },
 ]);
 
 function App() {

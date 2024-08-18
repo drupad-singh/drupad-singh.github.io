@@ -1,0 +1,788 @@
+[
+  {
+    "id": "0",
+    "name": "Classic Cheeseburger",
+    "isAvailable": true,
+    "description": "Juicy beef patty with melted cheese, lettuce, tomato, and pickles.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "19",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "24",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "29",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "499",
+    "calorieUnit": "kcal",
+    "servingSize": 0,
+    "price": 9.99,
+    "image": "https://example.com/images/classic-cheeseburger.jpg",
+    "customizations": [
+      {
+        "category": "Cheese",
+        "items": [
+          {
+            "name": "American Cheese",
+            "price": "-1.50",
+            "image": "https://example.com/images/american-cheese.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Cheddar Cheese",
+            "price": "-1.75",
+            "image": "https://example.com/images/cheddar-cheese.jpg",
+            "isAvailable": "true"
+          }
+        ]
+      },
+      {
+        "category": "Toppings",
+        "items": [
+          {
+            "name": "Bacon",
+            "price": "0.00",
+            "image": "https://example.com/images/bacon.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Avocado",
+            "price": "0.50",
+            "image": "https://example.com/images/avocado.jpg",
+            "isAvailable": "true"
+          }
+        ],
+        "maxAddons": 1
+      }
+    ],
+    "rating": 3.5,
+    "reviews": [
+      {
+        "replies": [
+          {
+            "repliedBy": "Alice",
+            "content": "I agree, the burger was amazing!"
+          }
+        ],
+        "reviewer": "JohnDoe",
+        "rate": "4",
+        "content": "Best cheeseburger I’ve ever had! The cheese was perfectly melted.",
+        "medias": [
+          {
+            "link": "https://example.com/videos/cheeseburger.mp3",
+            "type": "MediaType.Video"
+          }
+        ]
+      },
+      {
+        "replies": [],
+        "reviewer": "JaneSmith",
+        "rate": "3",
+        "content": "Good burger but a bit too greasy for my taste.",
+        "medias": [
+          {
+            "link": "https://example.com/images/cheeseburger-review.jpg",
+            "type": "MediaType.Image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "name": "Vegan Buddha Bowl",
+    "isAvailable": true,
+    "description": "A nutritious bowl packed with quinoa, chickpeas, roasted veggies, and avocado.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "14",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "17",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "39",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "449",
+    "calorieUnit": "kcal",
+    "servingSize": 0,
+    "price": 11.5,
+    "image": "https://example.com/images/vegan-buddha-bowl.jpg",
+    "customizations": [
+      {
+        "category": "Dressing",
+        "items": [
+          {
+            "name": "Tahini Dressing",
+            "price": "-1.80",
+            "image": "https://example.com/images/tahini-dressing.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Balsamic Vinaigrette",
+            "price": "-1.70",
+            "image": "https://example.com/images/balsamic-vinaigrette.jpg",
+            "isAvailable": "true"
+          }
+        ]
+      }
+    ],
+    "rating": 3.8,
+    "reviews": [
+      {
+        "replies": [],
+        "reviewer": "VeganJane",
+        "rate": "4",
+        "content": "Absolutely delicious and filling! The tahini dressing was a perfect touch.",
+        "medias": [
+          {
+            "link": "https://example.com/images/buddha-bowl-review.jpg",
+            "type": "MediaType.Image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Pepperoni Pizza",
+    "isAvailable": false,
+    "description": "Classic pizza topped with spicy pepperoni and mozzarella cheese.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "21",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "19",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "34",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "599",
+    "calorieUnit": "kcal",
+    "servingSize": 0,
+    "price": 13.99,
+    "image": "https://example.com/images/pepperoni-pizza.jpg",
+    "rating": 3.2,
+    "reviews": [
+      {
+        "replies": [
+          {
+            "repliedBy": "Bob",
+            "content": "Totally agree, the crust was just right!"
+          }
+        ],
+        "reviewer": "TommyT",
+        "rate": "3",
+        "content": "Great pizza, but the pepperoni was a bit too spicy for me.",
+        "medias": [
+          {
+            "link": "https://example.com/videos/pepperoni-pizza.mp3",
+            "type": "MediaType.Video"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "BBQ Chicken Pizza",
+    "isAvailable": true,
+    "description": "Delicious pizza topped with BBQ chicken, red onions, and cilantro.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "23",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "21",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "39",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "649",
+    "calorieUnit": "kcal",
+    "servingSize": 0,
+    "price": 15.99,
+    "image": "https://example.com/images/bbq-chicken-pizza.jpg",
+    "customizations": [
+      {
+        "category": "Extra Toppings",
+        "items": [
+          {
+            "name": "Extra Cheese",
+            "price": "0.00",
+            "image": "https://example.com/images/extra-cheese.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Jalapeños",
+            "price": "-1.75",
+            "image": "https://example.com/images/jalapenos.jpg",
+            "isAvailable": "true"
+          }
+        ]
+      }
+    ],
+    "rating": 3.7,
+    "reviews": [
+      {
+        "replies": [
+          {
+            "repliedBy": "Sara",
+            "content": "The BBQ sauce was exceptional!"
+          }
+        ],
+        "reviewer": "MarkM",
+        "rate": "4",
+        "content": "One of the best pizzas I’ve ever had. The BBQ chicken was perfect.",
+        "medias": [
+          {
+            "link": "https://example.com/videos/bbq-chicken-pizza.mp3",
+            "type": "MediaType.Video"
+          }
+        ]
+      },
+      {
+        "replies": [],
+        "reviewer": "EmmaL",
+        "rate": "3",
+        "content": "Great flavor, but a bit too greasy for my taste.",
+        "medias": [
+          {
+            "link": "https://example.com/images/bbq-chicken-pizza-review.jpg",
+            "type": "MediaType.Image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Spaghetti Carbonara",
+    "isAvailable": true,
+    "description": "Classic Italian pasta with creamy carbonara sauce, pancetta, and Parmesan.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "29",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "17",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "49",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "699",
+    "calorieUnit": "kcal",
+    "servingSize": 0,
+    "price": 12.99,
+    "image": "https://example.com/images/spaghetti-carbonara.jpg",
+    "customizations": [
+      {
+        "category": "Add-ons",
+        "items": [
+          {
+            "name": "Grilled Chicken",
+            "price": "1.00",
+            "image": "https://example.com/images/grilled-chicken.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Extra Parmesan",
+            "price": "-1.75",
+            "image": "https://example.com/images/extra-parmesan.jpg",
+            "isAvailable": "true"
+          }
+        ]
+      }
+    ],
+    "rating": 3.6,
+    "reviews": [
+      {
+        "replies": [
+          {
+            "repliedBy": "Alex",
+            "content": "Totally agree, the sauce was perfect."
+          }
+        ],
+        "reviewer": "OliviaS",
+        "rate": "4",
+        "content": "Delicious pasta with a rich and creamy sauce. Highly recommended!",
+        "medias": [
+          {
+            "link": "https://example.com/videos/spaghetti-carbonara.mp3",
+            "type": "MediaType.Video"
+          }
+        ]
+      },
+      {
+        "replies": [],
+        "reviewer": "LiamR",
+        "rate": "3",
+        "content": "Very tasty, but a bit heavy on the cream.",
+        "medias": [
+          {
+            "link": "https://example.com/images/spaghetti-carbonara-review.jpg",
+            "type": "MediaType.Image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Caesar Salad",
+    "isAvailable": true,
+    "description": "Crisp Romaine lettuce with Caesar dressing, croutons, and Parmesan cheese.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "11",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "8",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "19",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "349",
+    "calorieUnit": "kcal",
+    "servingSize": 0,
+    "price": 8.99,
+    "image": "https://example.com/images/caesar-salad.jpg",
+    "customizations": [
+      {
+        "category": "Protein Add-ons",
+        "items": [
+          {
+            "name": "Grilled Chicken",
+            "price": "1.50",
+            "image": "https://example.com/images/grilled-chicken-salad.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Bacon Bits",
+            "price": "0.00",
+            "image": "https://example.com/images/bacon-bits.jpg",
+            "isAvailable": "true"
+          }
+        ]
+      }
+    ],
+    "rating": 3.4,
+    "reviews": [
+      {
+        "replies": [
+          {
+            "repliedBy": "Sophie",
+            "content": "The Caesar dressing was fantastic!"
+          }
+        ],
+        "reviewer": "NinaT",
+        "rate": "4",
+        "content": "A refreshing and satisfying salad. Perfect for a light meal.",
+        "medias": [
+          {
+            "link": "https://example.com/images/caesar-salad-review.jpg",
+            "type": "MediaType.Image"
+          }
+        ]
+      },
+      {
+        "replies": [],
+        "reviewer": "JacobH",
+        "rate": "3",
+        "content": "Good salad, but a bit too much dressing for my taste.",
+        "medias": [
+          {
+            "link": "https://example.com/videos/caesar-salad.mp3",
+            "type": "MediaType.Video"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Margarita Pizza",
+    "isAvailable": true,
+    "description": "Classic pizza topped with fresh mozzarella, basil, and tomato sauce.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "17",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "14",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "39",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "549",
+    "calorieUnit": "kcal",
+    "servingSize": 0,
+    "price": 12.5,
+    "image": "https://example.com/images/margarita-pizza.jpg",
+    "customizations": [
+      {
+        "category": "Toppings",
+        "items": [
+          {
+            "name": "Olives",
+            "price": "-1.60",
+            "image": "https://example.com/images/olives.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Mushrooms",
+            "price": "-1.70",
+            "image": "https://example.com/images/mushrooms.jpg",
+            "isAvailable": "true"
+          }
+        ]
+      }
+    ],
+    "rating": 3.6,
+    "reviews": [
+      {
+        "replies": [
+          {
+            "repliedBy": "Carlos",
+            "content": "Agree, the basil added a nice touch!"
+          }
+        ],
+        "reviewer": "AmyR",
+        "rate": "4",
+        "content": "Fantastic pizza with a simple yet delicious topping.",
+        "medias": [
+          {
+            "link": "https://example.com/images/margarita-pizza-review.jpg",
+            "type": "MediaType.Image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Chicken Caesar Wrap",
+    "isAvailable": true,
+    "description": "Grilled chicken wrapped with Caesar salad ingredients and Parmesan cheese.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "21",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "29",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "34",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "599",
+    "calorieUnit": "kcal",
+    "servingSize": 0,
+    "price": 10.99,
+    "image": "https://example.com/images/chicken-caesar-wrap.jpg",
+    "customizations": [
+      {
+        "category": "Add-ons",
+        "items": [
+          {
+            "name": "Extra Chicken",
+            "price": "1.00",
+            "image": "https://example.com/images/extra-chicken-wrap.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Avocado",
+            "price": "0.50",
+            "image": "https://example.com/images/avocado-wrap.jpg",
+            "isAvailable": "true"
+          }
+        ]
+      }
+    ],
+    "rating": 3.5,
+    "reviews": [
+      {
+        "replies": [],
+        "reviewer": "JessicaT",
+        "rate": "4",
+        "content": "Delicious wrap with a great mix of flavors and textures.",
+        "medias": [
+          {
+            "link": "https://example.com/videos/chicken-caesar-wrap.mp3",
+            "type": "MediaType.Video"
+          }
+        ]
+      },
+      {
+        "replies": [
+          {
+            "repliedBy": "Matt",
+            "content": "I agree, it was quite filling!"
+          }
+        ],
+        "reviewer": "OliviaW",
+        "rate": "3",
+        "content": "Very tasty, but a bit too much dressing for my liking.",
+        "medias": [
+          {
+            "link": "https://example.com/images/chicken-caesar-wrap-review.jpg",
+            "type": "MediaType.Image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Spicy Tuna Roll",
+    "isAvailable": true,
+    "description": "Sushi roll filled with spicy tuna, avocado, and cucumber, topped with spicy mayo.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "15",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "19",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "39",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "549",
+    "calorieUnit": "kcal",
+    "servingSize": 0,
+    "price": 14.99,
+    "image": "https://example.com/images/spicy-tuna-roll.jpg",
+    "customizations": [
+      {
+        "category": "Sauces",
+        "items": [
+          {
+            "name": "Extra Spicy Mayo",
+            "price": "-1.50",
+            "image": "https://example.com/images/spicy-mayo.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Soy Sauce",
+            "price": "-1.30",
+            "image": "https://example.com/images/soy-sauce.jpg",
+            "isAvailable": "true"
+          }
+        ]
+      }
+    ],
+    "rating": 3.8,
+    "reviews": [
+      {
+        "replies": [],
+        "reviewer": "NinaC",
+        "rate": "4",
+        "content": "Absolutely fantastic! The spice level was perfect.",
+        "medias": [
+          {
+            "link": "https://example.com/videos/spicy-tuna-roll.mp3",
+            "type": "MediaType.Video"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Greek Salad",
+    "isAvailable": true,
+    "description": "Refreshing salad with cucumbers, tomatoes, olives, feta cheese, and a Greek vinaigrette.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "13",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "7",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "17",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "299",
+    "calorieUnit": "kcal",
+    "servingSize": 0,
+    "price": 9.99,
+    "image": "https://example.com/images/greek-salad.jpg",
+    "customizations": [
+      {
+        "category": "Add-ons",
+        "items": [
+          {
+            "name": "Grilled Chicken",
+            "price": "1.50",
+            "image": "https://example.com/images/grilled-chicken-salad.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Extra Feta Cheese",
+            "price": "0.00",
+            "image": "https://example.com/images/extra-feta.jpg",
+            "isAvailable": "true"
+          }
+        ]
+      }
+    ],
+    "rating": 3.3,
+    "reviews": [
+      {
+        "replies": [
+          {
+            "repliedBy": "Helen",
+            "content": "The Greek vinaigrette was superb!"
+          }
+        ],
+        "reviewer": "SamJ",
+        "rate": "3",
+        "content": "A very good salad, fresh and tasty. A bit more feta would be nice.",
+        "medias": [
+          {
+            "link": "https://example.com/images/greek-salad-review.jpg",
+            "type": "MediaType.Image"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Beef Tacos",
+    "isAvailable": true,
+    "description": "Soft tacos filled with seasoned ground beef, lettuce, cheese, and salsa.",
+    "nutrients": [
+      {
+        "name": "Fat",
+        "quantity": "21",
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "quantity": "17",
+        "unit": "g"
+      },
+      {
+        "name": "Carbohydrates",
+        "quantity": "29",
+        "unit": "g"
+      }
+    ],
+    "calorieCount": "549",
+    "calorieUnit": "kcal",
+    "servingSize": 1,
+    "price": 8.99,
+    "image": "https://example.com/images/beef-tacos.jpg",
+    "customizations": [
+      {
+        "category": "Salsas",
+        "items": [
+          {
+            "name": "Mild Salsa",
+            "price": "-1.40",
+            "image": "https://example.com/images/mild-salsa.jpg",
+            "isAvailable": "true"
+          },
+          {
+            "name": "Hot Salsa",
+            "price": "-1.60",
+            "image": "https://example.com/images/hot-salsa.jpg",
+            "isAvailable": "true"
+          }
+        ]
+      }
+    ],
+    "rating": 3.4,
+    "reviews": [
+      {
+        "replies": [
+          {
+            "repliedBy": "Rita",
+            "content": "Totally agree, the hot salsa was amazing!"
+          }
+        ],
+        "reviewer": "JakeP",
+        "rate": "3",
+        "content": "Great tacos, but the beef could use a bit more seasoning.",
+        "medias": [
+          {
+            "link": "https://example.com/videos/beef-tacos.mp3",
+            "type": "MediaType.Video"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -164,7 +164,7 @@ export function SelectInput<DataType>(
   return makeCustomField(customProps, (props: FieldRenderProps<string>) => (
     <Select
       style={{ width: customProps.width || 120 }}
-      defaultValue="+91"
+      defaultValue={customProps.defaultValue}
       {...props.input}
       options={customProps.options}
       optionRender={customProps.optionRender}

@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { Details, Merchant } from "../../types/Merchant";
-import { PersonalDetails } from "./PersonalDetails";
 import { Button, Card, Collapse, Row, Space } from "antd";
 import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import { AddressDetails } from "./AddressDetails";
@@ -9,6 +8,7 @@ import { BankDetails } from "./BankDetails";
 import { validateError } from "../../types/FormTypes";
 import { Maybe } from "../../utils/Core";
 import { Form } from "react-final-form";
+import { PersonalDetails } from "./PersonalDetails";
 
 type props = {
   handleFormSubmit: (m: Merchant) => undefined;
