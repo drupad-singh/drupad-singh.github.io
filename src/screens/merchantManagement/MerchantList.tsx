@@ -66,11 +66,11 @@ export function MerchantList() {
   const [merchantDetails, setMerchantDetails] = useState<Merchant[]>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
   let navigate = useNavigate();
-  const expandedRowRender = (merchant: merchantDetails) => {
+  const expandedRowRender = (merchantDetails) => {
     return (
       <CodeBlock
         theme={dracula}
-        text={JSON.stringify(merchant, undefined, 4)}
+        text={JSON.stringify(merchantDetails, undefined, 4)}
         showLineNumbers
         language="json"
       />

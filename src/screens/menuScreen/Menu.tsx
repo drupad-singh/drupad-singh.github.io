@@ -1,19 +1,19 @@
 import { useRecoilValue } from "recoil";
 import { MenuItemComponent } from "./MenuItem";
-import SampleItems from "./SampleItems.json";
+import ItemsJSON from "./SampleItems.json";
 import { CurrentCartItem } from "../../storage/RecoilState";
-import { Affix, Badge, Button, Divider, FloatButton, Space } from "antd";
+import { Affix, Badge, Button, Divider, Space } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import { theme } from "antd";
+import { MenuItem } from "../../types/MenuTypes";
+
+//@ts-ignore
+const SampleItems: MenuItem[] = ItemsJSON;
 
 const appPrimaryColor = "#001529";
-
-const { useToken } = theme;
 
 export const Menu = () => {
   const currentCartItems = useRecoilValue(CurrentCartItem);
   const cartItemCount = Object.keys(currentCartItems).length;
-  const { token } = useToken();
   return (
     <>
       <Space direction="vertical" size={"middle"} style={{ width: "100%" }}>

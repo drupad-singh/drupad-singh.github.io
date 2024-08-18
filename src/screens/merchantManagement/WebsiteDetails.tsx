@@ -1,13 +1,6 @@
 import { Button, GetProp, message, Upload, UploadProps } from "antd";
-import { ImageUpload, TextInputField } from "../components/FormComponents";
-import { FormGrid } from "../components/FormGrid";
-import {
-  CloudUploadOutlined,
-  LoadingOutlined,
-  PlusOutlined,
-} from "@ant-design/icons";
-import { useState } from "react";
-import { blueDark } from "@ant-design/colors";
+import { ImageUpload, TextInputField } from "../../components/FormComponents";
+import { FormGrid } from "../../components/FormGrid";
 
 export function WebsiteDetails() {
   return (

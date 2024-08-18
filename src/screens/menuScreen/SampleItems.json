@@ -78,7 +78,7 @@
         "medias": [
           {
             "link": "https://example.com/videos/cheeseburger.mp3",
-            "type": "MediaType.Video"
+            "type": "Video"
           }
         ]
       },
@@ -90,7 +90,7 @@
         "medias": [
           {
             "link": "https://example.com/images/cheeseburger-review.jpg",
-            "type": "MediaType.Image"
+            "type": "Image"
           }
         ]
       }
@@ -152,7 +152,7 @@
         "medias": [
           {
             "link": "https://example.com/images/buddha-bowl-review.jpg",
-            "type": "MediaType.Image"
+            "type": "Image"
           }
         ]
       }
@@ -200,7 +200,7 @@
         "medias": [
           {
             "link": "https://example.com/videos/pepperoni-pizza.mp3",
-            "type": "MediaType.Video"
+            "type": "Video"
           }
         ]
       }
@@ -267,7 +267,7 @@
         "medias": [
           {
             "link": "https://example.com/videos/bbq-chicken-pizza.mp3",
-            "type": "MediaType.Video"
+            "type": "Video"
           }
         ]
       },
@@ -279,7 +279,7 @@
         "medias": [
           {
             "link": "https://example.com/images/bbq-chicken-pizza-review.jpg",
-            "type": "MediaType.Image"
+            "type": "Image"
           }
         ]
       }
@@ -346,7 +346,7 @@
         "medias": [
           {
             "link": "https://example.com/videos/spaghetti-carbonara.mp3",
-            "type": "MediaType.Video"
+            "type": "Video"
           }
         ]
       },
@@ -358,7 +358,7 @@
         "medias": [
           {
             "link": "https://example.com/images/spaghetti-carbonara-review.jpg",
-            "type": "MediaType.Image"
+            "type": "Image"
           }
         ]
       }
@@ -425,7 +425,7 @@
         "medias": [
           {
             "link": "https://example.com/images/caesar-salad-review.jpg",
-            "type": "MediaType.Image"
+            "type": "Image"
           }
         ]
       },
@@ -437,7 +437,7 @@
         "medias": [
           {
             "link": "https://example.com/videos/caesar-salad.mp3",
-            "type": "MediaType.Video"
+            "type": "Video"
           }
         ]
       }
@@ -504,7 +504,7 @@
         "medias": [
           {
             "link": "https://example.com/images/margarita-pizza-review.jpg",
-            "type": "MediaType.Image"
+            "type": "Image"
           }
         ]
       }
@@ -566,7 +566,7 @@
         "medias": [
           {
             "link": "https://example.com/videos/chicken-caesar-wrap.mp3",
-            "type": "MediaType.Video"
+            "type": "Video"
           }
         ]
       },
@@ -583,7 +583,7 @@
         "medias": [
           {
             "link": "https://example.com/images/chicken-caesar-wrap-review.jpg",
-            "type": "MediaType.Image"
+            "type": "Image"
           }
         ]
       }
@@ -645,7 +645,7 @@
         "medias": [
           {
             "link": "https://example.com/videos/spicy-tuna-roll.mp3",
-            "type": "MediaType.Video"
+            "type": "Video"
           }
         ]
       }
@@ -712,7 +712,7 @@
         "medias": [
           {
             "link": "https://example.com/images/greek-salad-review.jpg",
-            "type": "MediaType.Image"
+            "type": "Image"
           }
         ]
       }
@@ -779,7 +779,7 @@
         "medias": [
           {
             "link": "https://example.com/videos/beef-tacos.mp3",
-            "type": "MediaType.Video"
+            "type": "Video"
           }
         ]
       }

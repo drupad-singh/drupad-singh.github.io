@@ -67,16 +67,16 @@ export const Homepage: React.FC<props> = ({ screen }) => {
           collapsible={true}
           trigger={null}
           collapsedWidth={"100px"}
-          onMouseEnter={ev => {
-            setCollpased(false)
-            ev.stopPropagation()
+          onMouseEnter={(ev) => {
+            setCollpased(false);
+            ev.stopPropagation();
           }}
-          onMouseLeave={ev => {
-            setCollpased(true)
-            ev.stopPropagation()
+          onMouseLeave={(ev) => {
+            setCollpased(true);
+            ev.stopPropagation();
           }}
         >
-          <Navbar screen={screen} />
+          <Navbar />
         </Sider>
         <Content style={contentStyle}>
           <ContentProvider screen={screen} />
