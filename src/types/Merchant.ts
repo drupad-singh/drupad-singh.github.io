@@ -1,5 +1,6 @@
 import CountryCodes from "../assets/countryCode.json"
 import { Maybe, maybe } from "../utils/Core"
+import { Address } from "./Common"
 
 export type CountryCode = {
   name: string,
@@ -56,15 +57,6 @@ const indiaCode: CountryCode = Maybe.fromMaybe(CountryCodes.find(c => c.name=="I
  */
 
 
-export type Address = {
-  pinCode: string,
-  state: string,
-  country: string,
-  city: string,
-  address1: string,
-  address2: maybe<string>,
-  landmark: maybe<string>
-}
 
 type FinancialDetails = {
   gstNumber: string,

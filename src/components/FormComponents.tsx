@@ -19,7 +19,7 @@ type fieldError = string;
 type fieldOption<DataType> = {
   label: string;
   value: string;
-  rowData: DataType;
+  rowData?: DataType;
 };
 
 type validateFn = (value: string) => fieldError;
@@ -111,7 +111,7 @@ export const TextInputField: CustomField = (customProps: CustomFieldProps) => {
 };
 
 export const NumberInputField = (customProps: CustomFieldProps) => {
-  let validateInteger = (value: string) => {
+  const validateInteger = (value: string) => {
     const isValid = /^\s*[0-9]+\s*$/.test(value);
     return !isValid
       ? "Please Enter Numeric value ( numbers between 0-9 )"
@@ -168,6 +168,23 @@ export function SelectInput<DataType>(
       {...props.input}
       options={customProps.options}
       optionRender={customProps.optionRender}
+    />
+  ));
+}
+
+export function MultiSelect<DataType>(
+  customProps: CustomFieldProps<{
+    options: fieldOption<DataType>[];
+    defaultValue: string[];
+    width?: number;
+  }>
+): JSX.Element {
+  return makeCustomField(customProps, (props: FieldRenderProps<string>) => (
+    <Select
+      style={{ width: customProps.width || 120 }}
+      defaultValue={customProps.defaultValue}
+      options={customProps.options}
+      {...props.input}
     />
   ));
 }

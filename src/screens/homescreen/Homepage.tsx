@@ -50,6 +50,12 @@ export const Homepage: React.FC<props> = ({ screen }) => {
       case Screen.MerchantListScreen:
         setSelectedNavItem(NavItem.MerchantList);
         break;
+      case Screen.RestaurantCreateScreen:
+        setSelectedNavItem(NavItem.RestaurantCreate);
+        break;
+      case Screen.RestaurantListScreen:
+        setSelectedNavItem(NavItem.RestaurantList);
+        break;
       default:
         setSelectedNavItem(NavItem.Nothing);
     }

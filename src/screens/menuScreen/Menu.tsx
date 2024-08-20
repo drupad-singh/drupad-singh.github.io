@@ -2,7 +2,7 @@ import { useRecoilValue } from "recoil";
 import { MenuItemComponent } from "./MenuItem";
 import ItemsJSON from "./SampleItems.json";
 import { CurrentCartItem } from "../../storage/RecoilState";
-import { Affix, Badge, Button, Divider, Space } from "antd";
+import { Affix, Badge, Button, Card, Divider, Space } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { MenuItem } from "../../types/MenuTypes";
 
@@ -15,7 +15,7 @@ export const Menu = () => {
   const currentCartItems = useRecoilValue(CurrentCartItem);
   const cartItemCount = Object.keys(currentCartItems).length;
   return (
-    <>
+    <Card>
       <Space direction="vertical" size={"middle"} style={{ width: "100%" }}>
         {SampleItems.map((item, index) => (
           <>
@@ -46,6 +46,6 @@ export const Menu = () => {
       ) : (
         <></>
       )}
-    </>
+    </Card>
   );
 };

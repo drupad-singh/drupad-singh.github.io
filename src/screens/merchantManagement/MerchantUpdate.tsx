@@ -3,16 +3,28 @@ import { DynamicComponent } from "../../components/DynamicComponent";
 import { useParams } from "react-router-dom";
 import { useMemo } from "react";
 import ShimmerLoader from "../../components/Shimmer";
-import { merchantDetailsStorage } from "../../storage/LocalStorage";
+import { merchantsStorage } from "../../storage/LocalStorage";
 
 export const MerchantUpdate: React.FC<object> = () => {
   const { merchantId } = useParams();
-  console.log("merchantId update", merchantId);
+  const handleFormSubmit = (merchantDetails) => {
+    const savedMerchantDetails = merchantsStorage.fetch();
+    if (savedMerchantDetails != null) {
+      const updatedMerchantDetails = savedMerchantDetails.filter(
+        (m) => m.id != merchantId
+      );
+      updatedMerchantDetails.push(merchantDetails);
+      merchantsStorage.save(updatedMerchantDetails);
+    } else {
+      merchantsStorage.save([merchantDetails]);
+    }
+  };
+
   const dom = useMemo(
     () => (
       <DynamicComponent
         apiCall={async () => {
-          const merchants = merchantDetailsStorage.fetch();
+          const merchants = merchantsStorage.fetch();
           const merchant = merchants.find((m) => m.id == merchantId);
           return merchant
             ? Promise.resolve(merchant)
@@ -21,7 +33,7 @@ export const MerchantUpdate: React.FC<object> = () => {
         render={(merchant) => (
           <MerchantForm
             merchantDetails={merchant}
-            handleFormSubmit={() => {}}
+            handleFormSubmit={handleFormSubmit}
             ctaText="Update Merchant"
           />
         )}

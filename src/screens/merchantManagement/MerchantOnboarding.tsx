@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { Merchant } from "../../types/Merchant";
 import { MerchantForm } from "./MerchantForm";
-import { merchantDetailsStorage } from "../../storage/LocalStorage";
+import { merchantsStorage } from "../../storage/LocalStorage";
 
 export function MerchantOnboarding() {
   const merchantDetails = {
@@ -10,12 +10,12 @@ export function MerchantOnboarding() {
 
   const handleFormSubmit = (updatedMerchantDetails: Merchant) => {
     const merchant: Merchant = { id: uuidv4(), ...updatedMerchantDetails };
-    const savedMerchantDetails = merchantDetailsStorage.fetch();
+    const savedMerchantDetails = merchantsStorage.fetch();
     if (savedMerchantDetails != null) {
       savedMerchantDetails.push(merchant);
-      merchantDetailsStorage.save(savedMerchantDetails);
+      merchantsStorage.save(savedMerchantDetails);
     } else {
-      merchantDetailsStorage.save([merchant]);
+      merchantsStorage.save([merchant]);
     }
   };
   return (

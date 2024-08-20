@@ -28,6 +28,18 @@ const router = createBrowserRouter([
     path: "/menu",
     element: <Homepage screen={Screen.RestaurantMenuScreen} />,
   },
+  {
+    path: "/restaurant/create",
+    element: <Homepage screen={Screen.RestaurantCreateScreen} />,
+  },
+  {
+    path: "/restaurant/:restaurantId/update",
+    element: <Homepage screen={Screen.RestaurantUpdateScreen} />,
+  },
+  {
+    path: "/restaurant/list",
+    element: <Homepage screen={Screen.RestaurantListScreen} />,
+  },
 ]);
 
 function App() {

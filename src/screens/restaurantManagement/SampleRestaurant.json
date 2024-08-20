@@ -1,0 +1,611 @@
+[
+  {
+    "id": "r001",
+    "name": "The Spice House",
+    "address": {
+      "address1": "456 Spice Lane",
+      "address2": "Apt 12",
+      "landmark": "Opposite Old Library",
+      "pinCode": "654321",
+      "geoHash": "gcpuz",
+      "state": "California",
+      "city": "Los Angeles",
+      "country": "USA"
+    },
+    "slug": "the-spice-house",
+    "isActive": "true",
+    "phoneNumber": "+1-555-234-5678",
+    "countryCode": "+1",
+    "merchantId": "m001",
+    "appMetadata": {
+      "logo": "https://example.com/spice-house-logo.png",
+      "cuisine": ["Indian", "Thai"],
+      "banner": "https://example.com/spice-house-banner.png",
+      "bannerText": "Spice Up Your Taste!"
+    },
+    "email": "contact@thespicehouse.com",
+    "telephone": "+1-555-876-5432",
+    "reviews": {
+      "rating": 4.2,
+      "reviews": [
+        {
+          "replies": [],
+          "reviewer": "Alice Brown",
+          "rate": "5",
+          "content": "Incredible flavors! The best Indian food I've had in years.",
+          "medias": [
+            {
+              "link": "https://example.com/spice-house-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        },
+        {
+          "replies": [
+            {
+              "repliedBy": "Owner",
+              "content": "Thank you for your feedback, Alice! We are thrilled you enjoyed the food."
+            }
+          ],
+          "reviewer": "Bob Green",
+          "rate": "3",
+          "content": "Good food but the service was slow.",
+          "medias": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "r002",
+    "name": "Cafe Cozy",
+    "address": {
+      "address1": "789 Coffee Road",
+      "address2": "",
+      "landmark": "Near the Park",
+      "pinCode": "789012",
+      "geoHash": "gcpux",
+      "state": "Texas",
+      "city": "Austin",
+      "country": "USA"
+    },
+    "slug": "cafe-cozy",
+    "isActive": "true",
+    "phoneNumber": "+1-555-345-6789",
+    "countryCode": "+1",
+    "merchantId": "m002",
+    "appMetadata": {
+      "logo": "https://example.com/cafe-cozy-logo.png",
+      "cuisine": ["American", "Bakery"],
+      "banner": "https://example.com/cafe-cozy-banner.png",
+      "bannerText": "Your Daily Dose of Comfort"
+    },
+    "email": "info@cafecozy.com",
+    "telephone": "+1-555-987-6543",
+    "reviews": {
+      "rating": 4.8,
+      "reviews": [
+        {
+          "replies": [
+            {
+              "repliedBy": "Manager",
+              "content": "We appreciate your kind words! See you soon."
+            }
+          ],
+          "reviewer": "Charlie Wilson",
+          "rate": "5",
+          "content": "Fantastic coffee and pastries! The ambiance is perfect for a lazy afternoon.",
+          "medias": [
+            {
+              "link": "https://example.com/cafe-cozy-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "r003",
+    "name": "Sushi Delight",
+    "address": {
+      "address1": "101 Sushi Avenue",
+      "address2": "Unit 5",
+      "landmark": "Next to Sushi Shop",
+      "pinCode": "123123",
+      "geoHash": "gcpuy",
+      "state": "New York",
+      "city": "New York",
+      "country": "USA"
+    },
+    "slug": "sushi-delight",
+    "isActive": "true",
+    "phoneNumber": "+1-555-456-7890",
+    "countryCode": "+1",
+    "merchantId": "m003",
+    "appMetadata": {
+      "logo": "https://example.com/sushi-delight-logo.png",
+      "cuisine": ["Japanese"],
+      "banner": "https://example.com/sushi-delight-banner.png",
+      "bannerText": "Fresh Sushi Every Day"
+    },
+    "email": "contact@sushidelight.com",
+    "telephone": "+1-555-654-3210",
+    "reviews": {
+      "rating": 4.9,
+      "reviews": [
+        {
+          "replies": [],
+          "reviewer": "David Lee",
+          "rate": "5",
+          "content": "Best sushi in town! Highly recommend their signature rolls.",
+          "medias": [
+            {
+              "link": "https://example.com/sushi-delight-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        },
+        {
+          "replies": [
+            {
+              "repliedBy": "Chef",
+              "content": "Thank you, David! We're glad you loved our sushi."
+            }
+          ],
+          "reviewer": "Emily Davis",
+          "rate": "4",
+          "content": "Great sushi, but a bit pricey.",
+          "medias": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "r004",
+    "name": "Bistro Bon Appetit",
+    "address": {
+      "address1": "202 Gourmet Road",
+      "address2": "Floor 2",
+      "landmark": "In the City Center",
+      "pinCode": "234567",
+      "geoHash": "gcpuz",
+      "state": "Florida",
+      "city": "Miami",
+      "country": "USA"
+    },
+    "slug": "bistro-bon-appetit",
+    "isActive": "true",
+    "phoneNumber": "+1-555-567-8901",
+    "countryCode": "+1",
+    "merchantId": "m004",
+    "appMetadata": {
+      "logo": "https://example.com/bistro-bon-appetit-logo.png",
+      "cuisine": ["French", "European"],
+      "banner": "https://example.com/bistro-bon-appetit-banner.png",
+      "bannerText": "Elegant Dining Experience"
+    },
+    "email": "info@bistrobonappetit.com",
+    "telephone": "+1-555-321-6540",
+    "reviews": {
+      "rating": 4.7,
+      "reviews": [
+        {
+          "replies": [],
+          "reviewer": "Frank Miller",
+          "rate": "5",
+          "content": "A truly elegant dining experience with exceptional service.",
+          "medias": [
+            {
+              "link": "https://example.com/bistro-bon-appetit-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        },
+        {
+          "replies": [
+            {
+              "repliedBy": "Owner",
+              "content": "Thank you, Frank! We're delighted you enjoyed your visit."
+            }
+          ],
+          "reviewer": "Grace Lee",
+          "rate": "4",
+          "content": "The food was great but the prices are on the higher side.",
+          "medias": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "r005",
+    "name": "Taco Fiesta",
+    "address": {
+      "address1": "303 Taco Lane",
+      "address2": "",
+      "landmark": "Next to the Stadium",
+      "pinCode": "345678",
+      "geoHash": "gcpux",
+      "state": "California",
+      "city": "San Diego",
+      "country": "USA"
+    },
+    "slug": "taco-fiesta",
+    "isActive": "true",
+    "phoneNumber": "+1-555-678-9012",
+    "countryCode": "+1",
+    "merchantId": "m005",
+    "appMetadata": {
+      "logo": "https://example.com/taco-fiesta-logo.png",
+      "cuisine": ["Mexican"],
+      "banner": "https://example.com/taco-fiesta-banner.png",
+      "bannerText": "Authentic Mexican Tacos"
+    },
+    "email": "info@tacofiesta.com",
+    "telephone": "+1-555-432-1098",
+    "reviews": {
+      "rating": 4.4,
+      "reviews": [
+        {
+          "replies": [],
+          "reviewer": "Henry Adams",
+          "rate": "5",
+          "content": "The best tacos I've ever had! Definitely coming back.",
+          "medias": [
+            {
+              "link": "https://example.com/taco-fiesta-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        },
+        {
+          "replies": [
+            {
+              "repliedBy": "Manager",
+              "content": "Thank you, Henry! We’re thrilled you enjoyed the tacos."
+            }
+          ],
+          "reviewer": "Ivy Robinson",
+          "rate": "4",
+          "content": "Good food but the place was a bit noisy.",
+          "medias": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "r006",
+    "name": "The Vegan Cafe",
+    "address": {
+      "address1": "404 Green Street",
+      "address2": "",
+      "landmark": "Near the University",
+      "pinCode": "456789",
+      "geoHash": "gcpuz",
+      "state": "Oregon",
+      "city": "Portland",
+      "country": "USA"
+    },
+    "slug": "the-vegan-cafe",
+    "isActive": "true",
+    "phoneNumber": "+1-555-789-0123",
+    "countryCode": "+1",
+    "merchantId": "m006",
+    "appMetadata": {
+      "logo": "https://example.com/the-vegan-cafe-logo.png",
+      "cuisine": ["Vegan", "Vegetarian"],
+      "banner": "https://example.com/the-vegan-cafe-banner.png",
+      "bannerText": "Healthy and Delicious Vegan Options"
+    },
+    "email": "contact@thevegancafe.com",
+    "telephone": "+1-555-321-0987",
+    "reviews": {
+      "rating": 4.6,
+      "reviews": [
+        {
+          "replies": [],
+          "reviewer": "Jack White",
+          "rate": "5",
+          "content": "Amazing vegan options! The dishes were flavorful and satisfying.",
+          "medias": [
+            {
+              "link": "https://example.com/the-vegan-cafe-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        },
+        {
+          "replies": [
+            {
+              "repliedBy": "Owner",
+              "content": "Thank you, Jack! We're glad you enjoyed our vegan dishes."
+            }
+          ],
+          "reviewer": "Kelly Johnson",
+          "rate": "4",
+          "content": "Great food, but the seating could be more comfortable.",
+          "medias": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "r007",
+    "name": "Burger Barn",
+    "address": {
+      "address1": "505 Burger Blvd",
+      "address2": "",
+      "landmark": "Across from the Mall",
+      "pinCode": "567890",
+      "geoHash": "gcpvx",
+      "state": "Arizona",
+      "city": "Phoenix",
+      "country": "USA"
+    },
+    "slug": "burger-barn",
+    "isActive": "true",
+    "phoneNumber": "+1-555-890-1234",
+    "countryCode": "+1",
+    "merchantId": "m007",
+    "appMetadata": {
+      "logo": "https://example.com/burger-barn-logo.png",
+      "cuisine": ["American", "Burgers"],
+      "banner": "https://example.com/burger-barn-banner.png",
+      "bannerText": "Juicy Burgers and Fries"
+    },
+    "email": "contact@burgerbarn.com",
+    "telephone": "+1-555-543-2109",
+    "reviews": {
+      "rating": 4.3,
+      "reviews": [
+        {
+          "replies": [],
+          "reviewer": "Lucas Martinez",
+          "rate": "4",
+          "content": "Great burgers, but the fries were a bit too salty.",
+          "medias": [
+            {
+              "link": "https://example.com/burger-barn-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        },
+        {
+          "replies": [
+            {
+              "repliedBy": "Manager",
+              "content": "Thank you for the feedback, Lucas. We’ll work on the fries."
+            }
+          ],
+          "reviewer": "Mia Garcia",
+          "rate": "5",
+          "content": "Best burger joint in town! The milkshakes are amazing.",
+          "medias": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "r008",
+    "name": "Pizza Palace",
+    "address": {
+      "address1": "606 Pizza Street",
+      "address2": "",
+      "landmark": "Near City Hall",
+      "pinCode": "678901",
+      "geoHash": "gcpvy",
+      "state": "Nevada",
+      "city": "Las Vegas",
+      "country": "USA"
+    },
+    "slug": "pizza-palace",
+    "isActive": "true",
+    "phoneNumber": "+1-555-901-2345",
+    "countryCode": "+1",
+    "merchantId": "m008",
+    "appMetadata": {
+      "logo": "https://example.com/pizza-palace-logo.png",
+      "cuisine": ["Italian", "Pizza"],
+      "banner": "https://example.com/pizza-palace-banner.png",
+      "bannerText": "Delicious Pizzas and More"
+    },
+    "email": "info@pizzapalace.com",
+    "telephone": "+1-555-654-3210",
+    "reviews": {
+      "rating": 4.5,
+      "reviews": [
+        {
+          "replies": [],
+          "reviewer": "Nancy Clark",
+          "rate": "5",
+          "content": "Amazing pizza with fresh ingredients. The crust was perfect!",
+          "medias": [
+            {
+              "link": "https://example.com/pizza-palace-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        },
+        {
+          "replies": [
+            {
+              "repliedBy": "Owner",
+              "content": "Thank you, Nancy! We’re glad you enjoyed the pizza."
+            }
+          ],
+          "reviewer": "Oliver King",
+          "rate": "4",
+          "content": "Good pizza, but the service could be faster.",
+          "medias": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "r009",
+    "name": "Pasta Paradise",
+    "address": {
+      "address1": "707 Pasta Place",
+      "address2": "Suite 3",
+      "landmark": "Near the Cinema",
+      "pinCode": "789123",
+      "geoHash": "gcpvz",
+      "state": "Washington",
+      "city": "Seattle",
+      "country": "USA"
+    },
+    "slug": "pasta-paradise",
+    "isActive": "true",
+    "phoneNumber": "+1-555-012-3456",
+    "countryCode": "+1",
+    "merchantId": "m009",
+    "appMetadata": {
+      "logo": "https://example.com/pasta-paradise-logo.png",
+      "cuisine": ["Italian", "Pasta"],
+      "banner": "https://example.com/pasta-paradise-banner.png",
+      "bannerText": "Authentic Italian Pasta Dishes"
+    },
+    "email": "contact@pastaparadise.com",
+    "telephone": "+1-555-678-9012",
+    "reviews": {
+      "rating": 4.6,
+      "reviews": [
+        {
+          "replies": [],
+          "reviewer": "Paul Thompson",
+          "rate": "5",
+          "content": "The pasta was out of this world! Will definitely be back.",
+          "medias": [
+            {
+              "link": "https://example.com/pasta-paradise-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        },
+        {
+          "replies": [
+            {
+              "repliedBy": "Chef",
+              "content": "Thank you for your feedback, Paul! We're delighted you enjoyed our pasta."
+            }
+          ],
+          "reviewer": "Quinn Anderson",
+          "rate": "4",
+          "content": "Great food but the ambiance could be improved.",
+          "medias": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "r010",
+    "name": "Seafood Haven",
+    "address": {
+      "address1": "808 Seafood Street",
+      "address2": "Floor 4",
+      "landmark": "Next to Marina",
+      "pinCode": "890234",
+      "geoHash": "gcpwa",
+      "state": "California",
+      "city": "San Francisco",
+      "country": "USA"
+    },
+    "slug": "seafood-haven",
+    "isActive": "true",
+    "phoneNumber": "+1-555-123-4567",
+    "countryCode": "+1",
+    "merchantId": "m010",
+    "appMetadata": {
+      "logo": "https://example.com/seafood-haven-logo.png",
+      "cuisine": ["Seafood"],
+      "banner": "https://example.com/seafood-haven-banner.png",
+      "bannerText": "Fresh Seafood Daily"
+    },
+    "email": "info@seafoodhaven.com",
+    "telephone": "+1-555-765-4321",
+    "reviews": {
+      "rating": 4.8,
+      "reviews": [
+        {
+          "replies": [],
+          "reviewer": "Rachel Scott",
+          "rate": "5",
+          "content": "Incredible seafood! The shrimp was especially amazing.",
+          "medias": [
+            {
+              "link": "https://example.com/seafood-haven-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        },
+        {
+          "replies": [
+            {
+              "repliedBy": "Manager",
+              "content": "Thank you, Rachel! We’re glad you enjoyed the shrimp."
+            }
+          ],
+          "reviewer": "Steve Harris",
+          "rate": "4",
+          "content": "Great seafood, but a bit overpriced.",
+          "medias": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "r011",
+    "name": "Grill Masters",
+    "address": {
+      "address1": "909 BBQ Road",
+      "address2": "",
+      "landmark": "Near the Stadium",
+      "pinCode": "901345",
+      "geoHash": "gcpwb",
+      "state": "Colorado",
+      "city": "Denver",
+      "country": "USA"
+    },
+    "slug": "grill-masters",
+    "isActive": "true",
+    "phoneNumber": "+1-555-234-5678",
+    "countryCode": "+1",
+    "merchantId": "m011",
+    "appMetadata": {
+      "logo": "https://example.com/grill-masters-logo.png",
+      "cuisine": ["Barbecue"],
+      "banner": "https://example.com/grill-masters-banner.png",
+      "bannerText": "The Best BBQ in Town"
+    },
+    "email": "contact@grillmasters.com",
+    "telephone": "+1-555-876-5432",
+    "reviews": {
+      "rating": 4.7,
+      "reviews": [
+        {
+          "replies": [],
+          "reviewer": "Tom Wilson",
+          "rate": "5",
+          "content": "Fantastic barbecue! The ribs were to die for.",
+          "medias": [
+            {
+              "link": "https://example.com/grill-masters-review1.jpg",
+              "type": "MediaType.Image"
+            }
+          ]
+        },
+        {
+          "replies": [
+            {
+              "repliedBy": "Owner",
+              "content": "Thank you, Tom! We’re thrilled you loved the ribs."
+            }
+          ],
+          "reviewer": "Anna Moore",
+          "rate": "4",
+          "content": "Good BBQ, but the sides were a bit lacking.",
+          "medias": []
+        }
+      ]
+    }
+  }
+]

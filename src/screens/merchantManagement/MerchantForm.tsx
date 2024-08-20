@@ -2,13 +2,13 @@ import { useEffect, useMemo, useState } from "react";
 import { Details, Merchant } from "../../types/Merchant";
 import { Button, Card, Collapse, Row, Space } from "antd";
 import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
-import { AddressDetails } from "./AddressDetails";
 import { FinancialDetails } from "./FinancialDetails";
 import { BankDetails } from "./BankDetails";
 import { validateError } from "../../types/FormTypes";
 import { Maybe } from "../../utils/Core";
 import { Form } from "react-final-form";
 import { PersonalDetails } from "./PersonalDetails";
+import { AddressDetails } from "../../components/AddressDetails";
 
 type props = {
   handleFormSubmit: (m: Merchant) => undefined;
@@ -24,10 +24,10 @@ export function MerchantForm({
     Details.PersonalDetails
   );
 
-  const accordionItems = useMemo(() => {
+  const allAccordionItems = useMemo(() => {
     const handleDelete = (key) => {
-      setCurrentAccordions((accordionItems) =>
-        accordionItems.filter((k) => k.key != key)
+      setVisibleAccordions((allAccordionItems) =>
+        allAccordionItems.filter((k) => k.key != key)
       );
       setSelectedAccordion((item) =>
         item == key ? Details.PersonalDetails : item
@@ -77,30 +77,30 @@ export function MerchantForm({
     ];
   }, [merchantDetails]);
 
-  const [currentAccordions, setCurrentAccordions] = useState([]);
+  const [visibleAccordions, setVisibleAccordions] = useState([]);
   useEffect(() => {
-    setCurrentAccordions(accordionItems.filter((item) => item.visibility));
-  }, [accordionItems]);
+    setVisibleAccordions(allAccordionItems.filter((item) => item.visibility));
+  }, [allAccordionItems]);
   console.log(
-    "currentAccordions",
-    currentAccordions,
+    "visibleAccordions",
+    visibleAccordions,
     merchantDetails,
-    accordionItems
+    allAccordionItems
   );
 
   const addDetailsButton = () =>
-    currentAccordions.length != accordionItems.length ? (
+    visibleAccordions.length != allAccordionItems.length ? (
       <Button
         onClick={() =>
-          setCurrentAccordions(
-            accordionItems.slice(0, currentAccordions.length + 1)
+          setVisibleAccordions(
+            allAccordionItems.slice(0, visibleAccordions.length + 1)
           )
         }
       >
         {<PlusOutlined />}
         {"Add " +
-          accordionItems.find(
-            (x) => !currentAccordions.find((y) => x.key == y.key)
+          allAccordionItems.find(
+            (x) => !visibleAccordions.find((y) => x.key == y.key)
           ).label}
       </Button>
     ) : (
@@ -133,11 +133,10 @@ export function MerchantForm({
                 style={{ width: "100%" }}
                 size="large"
                 accordion={true}
-                items={currentAccordions}
+                items={visibleAccordions}
                 defaultActiveKey={[selectedAccordion]}
                 activeKey={selectedAccordion}
                 onChange={(key: string | string[]) => {
-                  console.log("accordion onchange", key);
                   if (Array.isArray(key)) {
                     key = key[0] || "1";
                   }

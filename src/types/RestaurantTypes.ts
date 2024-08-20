@@ -1,15 +1,5 @@
-import { Review } from "./Common"
+import { Address, Review } from "./Common"
 
-export type Address = {
-    address1: string,
-    address2?: string,
-    landmark?: string,
-    pinCode: string
-    geoHash: string,
-    state: string,
-    city: string,
-    country: string
-}
 
 export type AppMetadata = {
     logo: string,
@@ -27,11 +17,17 @@ export type RestaurantDetails = {
     phoneNumber: string,
     countryCode: string,
     merchantId: string,
-    appMetadata: AppMetadata,
+    appMetadata?: AppMetadata,
     email: string,
-    telephone: string,
-    reviews: {
+    telephone?: string,
+    reviews?: {
         rating: number,
         reviews: Review[]
     }
+}
+
+export enum RestaurantAccordions {
+    BasicDetails,
+    AddressDetails,
+    AppDetails
 }

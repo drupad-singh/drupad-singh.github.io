@@ -1,17 +1,14 @@
 import { useField, useForm } from "react-final-form";
 import pincodeDir from "india-pincode-lookup";
 import { useEffect } from "react";
-import { FormGrid } from "../../components/FormGrid";
-import {
-  NumberInputField,
-  TextInputField,
-} from "../../components/FormComponents";
+import { TextInputField } from "./FormComponents";
+import { FormGrid } from "./FormGrid";
 
-export function AddressDetails() {
+export const AddressDetails = () => {
   const form = useForm();
   const pinCode = useField("address.pinCode").input.value;
   useEffect(() => {
-    let numeric = parseInt(pinCode);
+    const numeric = parseInt(pinCode);
     if (!isNaN(numeric) && pinCode.length == 6) {
       const formState = form.getState();
       const { districtName, stateName } = pincodeDir.lookup(pinCode)[0];
@@ -27,11 +24,24 @@ export function AddressDetails() {
           name: "address.address1",
           required: true,
         }),
-        TextInputField({ label: "Address Line 2", name: "address.address2" }),
         TextInputField({
-          label: "Country",
-          name: "address.country",
+          label: "Address Line 2",
+          name: "address.address2",
+        }),
+        TextInputField({
+          label: "Landmark",
+          name: "address.landmark",
+        }),
+        TextInputField({
+          label: "Pin Code",
+          name: "address.pinCode",
           required: true,
+        }),
+        TextInputField({
+          label: "State",
+          name: "address.state",
+          required: true,
+          disabled: true,
         }),
         TextInputField({
           label: "City",
@@ -40,18 +50,12 @@ export function AddressDetails() {
           disabled: true,
         }),
         TextInputField({
-          label: "State",
-          name: "address.state",
+          label: "Country",
+          name: "address.country",
           required: true,
           disabled: true,
         }),
-        NumberInputField({
-          label: "Pin Code",
-          name: "address.pinCode",
-          required: true,
-        }),
-        TextInputField({ label: "Landmark", name: "address.landmark" }),
       ]}
     />
   );
-}
+};

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { merchantDetailsStorage } from "../../storage/LocalStorage";
-import { Address, Merchant } from "../../types/Merchant";
+import { merchantsStorage } from "../../storage/LocalStorage";
+import { Merchant } from "../../types/Merchant";
 import {
   Button,
   Empty,
@@ -14,6 +14,7 @@ import { maybe } from "../../utils/Core";
 import { CodeBlock, dracula } from "react-code-blocks";
 import { useNavigate } from "react-router-dom";
 import { ColumnsType } from "antd/es/table";
+import { Address } from "../../types/Common";
 
 const columns = (
   editAction: (m: Merchant) => void,
@@ -63,14 +64,14 @@ const columns = (
 ];
 
 export function MerchantList() {
-  const [merchantDetails, setMerchantDetails] = useState<Merchant[]>([]);
+  const [merchants, setMerchants] = useState<Merchant[]>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
   let navigate = useNavigate();
-  const expandedRowRender = (merchantDetails) => {
+  const expandedRowRender = (merchants) => {
     return (
       <CodeBlock
         theme={dracula}
-        text={JSON.stringify(merchantDetails, undefined, 4)}
+        text={JSON.stringify(merchants, undefined, 4)}
         showLineNumbers
         language="json"
       />
@@ -83,9 +84,9 @@ export function MerchantList() {
   const onDeleteAction = (merchant: Merchant) => {};
 
   useEffect(() => {
-    const _merchantDetails = merchantDetailsStorage.fetch();
+    const _merchantDetails = merchantsStorage.fetch();
     if (_merchantDetails != null) {
-      setMerchantDetails(_merchantDetails);
+      setMerchants(_merchantDetails);
     }
     setShowLoader(false);
   }, []);
@@ -94,7 +95,7 @@ export function MerchantList() {
     tableDom = (
       <Table
         columns={columns(onEditAction, onDeleteAction)}
-        dataSource={merchantDetails}
+        dataSource={merchants}
         expandable={{
           expandedRowRender,
         }}
@@ -105,7 +106,6 @@ export function MerchantList() {
   return (
     <>
       <Skeleton active loading={showLoader} />
-      {showLoader}
       {tableDom}
     </>
   );

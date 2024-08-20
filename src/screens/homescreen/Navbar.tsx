@@ -1,4 +1,12 @@
-import { MailOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  BookOutlined,
+  MailOutlined,
+  MenuOutlined,
+  PlusOutlined,
+  ShopOutlined,
+  UserAddOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { Menu, GetProp, MenuProps } from "antd";
 import { useRecoilState } from "recoil";
 import { NavItem, SelectedNavItem } from "../../storage/RecoilState";
@@ -23,6 +31,28 @@ const items: MenuItem[] = [
       },
     ],
   },
+  {
+    key: "2",
+    icon: <ShopOutlined />,
+    label: "Restaurant Management",
+    children: [
+      {
+        key: NavItem.RestaurantCreate,
+        icon: <PlusOutlined />,
+        label: "Add New Restaurant",
+      },
+      {
+        key: NavItem.RestaurantList,
+        icon: <MenuOutlined />,
+        label: "Onboarded Restaurants",
+      },
+    ],
+  },
+  {
+    key: NavItem.MenuDemo,
+    label: "Menu Demo (Take a Tour)",
+    icon: <BookOutlined />,
+  },
   // { type: "divider" },
   // { key: "2", label: "Domain Management" },
   // { type: "divider" },
@@ -41,6 +71,15 @@ export function Navbar() {
         break;
       case NavItem.MerchantList:
         navigate("/merchant/list");
+        break;
+      case NavItem.RestaurantCreate:
+        navigate("/restaurant/create");
+        break;
+      case NavItem.RestaurantList:
+        navigate("/restaurant/list");
+        break;
+      case NavItem.MenuDemo:
+        navigate("/menu");
         break;
       default:
         navigate("/");

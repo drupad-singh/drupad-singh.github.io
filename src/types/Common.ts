@@ -21,3 +21,16 @@ export type Review = {
     content: string,
     medias: Media[]
 }
+
+
+export type Address = {
+    address1: string;
+    address2?: string;
+    landmark?: string;
+    pinCode: string;
+    geoHash: string;
+    state: string;
+    city: string;
+    country: string;
+  };
+  

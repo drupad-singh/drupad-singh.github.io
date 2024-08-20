@@ -1,13 +1,17 @@
 export const FormDimens = {
    gutterSizeX: 24,
-  gutterSizeY: 48,
-  colSpan: 8
+   gutterSizeY: 48,
+   colSpan: 8
 }
 
 export enum Screen {
   MerchantOnboardingScreen,
   MerchantListScreen,
-MerchantUpdateScreen,
-MerchantDeleteScreen,
-RestaurantMenuScreen
+  MerchantUpdateScreen,
+  MerchantDeleteScreen,
+  RestaurantMenuScreen,
+  RestaurantCreateScreen,
+  RestaurantUpdateScreen,
+  RestaurantListScreen,
+
 }
