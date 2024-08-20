@@ -25,7 +25,7 @@
     "calorieUnit": "kcal",
     "servingSize": 0,
     "price": 9.99,
-    "image": "https://example.com/images/classic-cheeseburger.jpg",
+    "image": "./foodItems/classic_cheese_burger.jpeg",
     "customizations": [
       {
         "category": "Cheese",
@@ -33,13 +33,13 @@
           {
             "name": "American Cheese",
             "price": "-1.50",
-            "image": "https://example.com/images/american-cheese.jpg",
+            "image": "./foodItems/american-cheese.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Cheddar Cheese",
             "price": "-1.75",
-            "image": "https://example.com/images/cheddar-cheese.jpg",
+            "image": "./foodItems/cheddar-cheese.jpeg",
             "isAvailable": "true"
           }
         ]
@@ -50,13 +50,13 @@
           {
             "name": "Bacon",
             "price": "0.00",
-            "image": "https://example.com/images/bacon.jpg",
+            "image": "./foodItems/bacon.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Avocado",
             "price": "0.50",
-            "image": "https://example.com/images/avocado.jpg",
+            "image": "./foodItems/avocado.jpeg",
             "isAvailable": "true"
           }
         ],
@@ -73,11 +73,11 @@
           }
         ],
         "reviewer": "JohnDoe",
-        "rate": "4",
+        "rating": "4",
         "content": "Best cheeseburger I’ve ever had! The cheese was perfectly melted.",
         "medias": [
           {
-            "link": "https://example.com/videos/cheeseburger.mp3",
+            "link": "./foodItems/videos/cheeseburger.mp3",
             "type": "Video"
           }
         ]
@@ -85,11 +85,11 @@
       {
         "replies": [],
         "reviewer": "JaneSmith",
-        "rate": "3",
+        "rating": "3",
         "content": "Good burger but a bit too greasy for my taste.",
         "medias": [
           {
-            "link": "https://example.com/images/cheeseburger-review.jpg",
+            "link": "./foodItems/cheeseburger-review.jpeg",
             "type": "Image"
           }
         ]
@@ -122,7 +122,7 @@
     "calorieUnit": "kcal",
     "servingSize": 0,
     "price": 11.5,
-    "image": "https://example.com/images/vegan-buddha-bowl.jpg",
+    "image": "./foodItems/vegan_buddha_bowl.jpeg",
     "customizations": [
       {
         "category": "Dressing",
@@ -130,13 +130,13 @@
           {
             "name": "Tahini Dressing",
             "price": "-1.80",
-            "image": "https://example.com/images/tahini-dressing.jpg",
+            "image": "./foodItems/tahini-dressing.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Balsamic Vinaigrette",
             "price": "-1.70",
-            "image": "https://example.com/images/balsamic-vinaigrette.jpg",
+            "image": "./foodItems/balsamic-vinaigrette.jpeg",
             "isAvailable": "true"
           }
         ]
@@ -147,11 +147,11 @@
       {
         "replies": [],
         "reviewer": "VeganJane",
-        "rate": "4",
+        "rating": "4",
         "content": "Absolutely delicious and filling! The tahini dressing was a perfect touch.",
         "medias": [
           {
-            "link": "https://example.com/images/buddha-bowl-review.jpg",
+            "link": "./foodItems/buddha-bowl-review.jpeg",
             "type": "Image"
           }
         ]
@@ -184,7 +184,7 @@
     "calorieUnit": "kcal",
     "servingSize": 0,
     "price": 13.99,
-    "image": "https://example.com/images/pepperoni-pizza.jpg",
+    "image": "./foodItems/pepproni_pizza.jpeg",
     "rating": 3.2,
     "reviews": [
       {
@@ -195,11 +195,11 @@
           }
         ],
         "reviewer": "TommyT",
-        "rate": "3",
+        "rating": "3",
         "content": "Great pizza, but the pepperoni was a bit too spicy for me.",
         "medias": [
           {
-            "link": "https://example.com/videos/pepperoni-pizza.mp3",
+            "link": "./foodItems/videos/pepperoni-pizza.mp3",
             "type": "Video"
           }
         ]
@@ -232,7 +232,7 @@
     "calorieUnit": "kcal",
     "servingSize": 0,
     "price": 15.99,
-    "image": "https://example.com/images/bbq-chicken-pizza.jpg",
+    "image": "./foodItems/bbq_chicken_pizza.jpeg",
     "customizations": [
       {
         "category": "Extra Toppings",
@@ -240,13 +240,13 @@
           {
             "name": "Extra Cheese",
             "price": "0.00",
-            "image": "https://example.com/images/extra-cheese.jpg",
+            "image": "./foodItems/extra-cheese.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Jalapeños",
             "price": "-1.75",
-            "image": "https://example.com/images/jalapenos.jpg",
+            "image": "./foodItems/jalapenos.jpeg",
             "isAvailable": "true"
           }
         ]
@@ -262,11 +262,11 @@
           }
         ],
         "reviewer": "MarkM",
-        "rate": "4",
+        "rating": "4",
         "content": "One of the best pizzas I’ve ever had. The BBQ chicken was perfect.",
         "medias": [
           {
-            "link": "https://example.com/videos/bbq-chicken-pizza.mp3",
+            "link": "./foodItems/videos/bbq-chicken-pizza.mp3",
             "type": "Video"
           }
         ]
@@ -274,11 +274,11 @@
       {
         "replies": [],
         "reviewer": "EmmaL",
-        "rate": "3",
+        "rating": "3",
         "content": "Great flavor, but a bit too greasy for my taste.",
         "medias": [
           {
-            "link": "https://example.com/images/bbq-chicken-pizza-review.jpg",
+            "link": "./foodItems/bbq-chicken-pizza-review.jpeg",
             "type": "Image"
           }
         ]
@@ -311,7 +311,7 @@
     "calorieUnit": "kcal",
     "servingSize": 0,
     "price": 12.99,
-    "image": "https://example.com/images/spaghetti-carbonara.jpg",
+    "image": "./foodItems/spaghetti.jpeg",
     "customizations": [
       {
         "category": "Add-ons",
@@ -319,13 +319,13 @@
           {
             "name": "Grilled Chicken",
             "price": "1.00",
-            "image": "https://example.com/images/grilled-chicken.jpg",
+            "image": "./foodItems/grilled-chicken.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Extra Parmesan",
             "price": "-1.75",
-            "image": "https://example.com/images/extra-parmesan.jpg",
+            "image": "./foodItems/extra-parmesan.jpeg",
             "isAvailable": "true"
           }
         ]
@@ -341,11 +341,11 @@
           }
         ],
         "reviewer": "OliviaS",
-        "rate": "4",
+        "rating": "4",
         "content": "Delicious pasta with a rich and creamy sauce. Highly recommended!",
         "medias": [
           {
-            "link": "https://example.com/videos/spaghetti-carbonara.mp3",
+            "link": "./foodItems/videos/spaghetti-carbonara.mp3",
             "type": "Video"
           }
         ]
@@ -353,11 +353,11 @@
       {
         "replies": [],
         "reviewer": "LiamR",
-        "rate": "3",
+        "rating": "3",
         "content": "Very tasty, but a bit heavy on the cream.",
         "medias": [
           {
-            "link": "https://example.com/images/spaghetti-carbonara-review.jpg",
+            "link": "./foodItems/spaghetti-carbonara-review.jpeg",
             "type": "Image"
           }
         ]
@@ -390,7 +390,7 @@
     "calorieUnit": "kcal",
     "servingSize": 0,
     "price": 8.99,
-    "image": "https://example.com/images/caesar-salad.jpg",
+    "image": "./foodItems/caesar_salad.jpeg",
     "customizations": [
       {
         "category": "Protein Add-ons",
@@ -398,13 +398,13 @@
           {
             "name": "Grilled Chicken",
             "price": "1.50",
-            "image": "https://example.com/images/grilled-chicken-salad.jpg",
+            "image": "./foodItems/grilled-chicken-salad.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Bacon Bits",
             "price": "0.00",
-            "image": "https://example.com/images/bacon-bits.jpg",
+            "image": "./foodItems/bacon-bits.jpeg",
             "isAvailable": "true"
           }
         ]
@@ -420,11 +420,11 @@
           }
         ],
         "reviewer": "NinaT",
-        "rate": "4",
+        "rating": "4",
         "content": "A refreshing and satisfying salad. Perfect for a light meal.",
         "medias": [
           {
-            "link": "https://example.com/images/caesar-salad-review.jpg",
+            "link": "./foodItems/caesar-salad-review.jpeg",
             "type": "Image"
           }
         ]
@@ -432,11 +432,11 @@
       {
         "replies": [],
         "reviewer": "JacobH",
-        "rate": "3",
+        "rating": "3",
         "content": "Good salad, but a bit too much dressing for my taste.",
         "medias": [
           {
-            "link": "https://example.com/videos/caesar-salad.mp3",
+            "link": "./foodItems/videos/caesar-salad.mp3",
             "type": "Video"
           }
         ]
@@ -469,7 +469,7 @@
     "calorieUnit": "kcal",
     "servingSize": 0,
     "price": 12.5,
-    "image": "https://example.com/images/margarita-pizza.jpg",
+    "image": "./foodItems/margarita_pizza.jpeg",
     "customizations": [
       {
         "category": "Toppings",
@@ -477,13 +477,13 @@
           {
             "name": "Olives",
             "price": "-1.60",
-            "image": "https://example.com/images/olives.jpg",
+            "image": "./foodItems/olives.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Mushrooms",
             "price": "-1.70",
-            "image": "https://example.com/images/mushrooms.jpg",
+            "image": "./foodItems/mushrooms.jpeg",
             "isAvailable": "true"
           }
         ]
@@ -499,11 +499,11 @@
           }
         ],
         "reviewer": "AmyR",
-        "rate": "4",
+        "rating": "4",
         "content": "Fantastic pizza with a simple yet delicious topping.",
         "medias": [
           {
-            "link": "https://example.com/images/margarita-pizza-review.jpg",
+            "link": "./foodItems/margarita-pizza-review.jpeg",
             "type": "Image"
           }
         ]
@@ -536,7 +536,7 @@
     "calorieUnit": "kcal",
     "servingSize": 0,
     "price": 10.99,
-    "image": "https://example.com/images/chicken-caesar-wrap.jpg",
+    "image": "./foodItems/caesar_wrap.jpeg",
     "customizations": [
       {
         "category": "Add-ons",
@@ -544,13 +544,13 @@
           {
             "name": "Extra Chicken",
             "price": "1.00",
-            "image": "https://example.com/images/extra-chicken-wrap.jpg",
+            "image": "./foodItems/extra-chicken-wrap.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Avocado",
             "price": "0.50",
-            "image": "https://example.com/images/avocado-wrap.jpg",
+            "image": "./foodItems/avocado-wrap.jpeg",
             "isAvailable": "true"
           }
         ]
@@ -561,11 +561,11 @@
       {
         "replies": [],
         "reviewer": "JessicaT",
-        "rate": "4",
+        "rating": "4",
         "content": "Delicious wrap with a great mix of flavors and textures.",
         "medias": [
           {
-            "link": "https://example.com/videos/chicken-caesar-wrap.mp3",
+            "link": "./foodItems/videos/chicken-caesar-wrap.mp3",
             "type": "Video"
           }
         ]
@@ -578,11 +578,11 @@
           }
         ],
         "reviewer": "OliviaW",
-        "rate": "3",
+        "rating": "3",
         "content": "Very tasty, but a bit too much dressing for my liking.",
         "medias": [
           {
-            "link": "https://example.com/images/chicken-caesar-wrap-review.jpg",
+            "link": "./foodItems/chicken-caesar-wrap-review.jpeg",
             "type": "Image"
           }
         ]
@@ -615,7 +615,7 @@
     "calorieUnit": "kcal",
     "servingSize": 0,
     "price": 14.99,
-    "image": "https://example.com/images/spicy-tuna-roll.jpg",
+    "image": "./foodItems/spicy_tuna_roll.jpeg",
     "customizations": [
       {
         "category": "Sauces",
@@ -623,13 +623,13 @@
           {
             "name": "Extra Spicy Mayo",
             "price": "-1.50",
-            "image": "https://example.com/images/spicy-mayo.jpg",
+            "image": "./foodItems/spicy-mayo.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Soy Sauce",
             "price": "-1.30",
-            "image": "https://example.com/images/soy-sauce.jpg",
+            "image": "./foodItems/soy-sauce.jpeg",
             "isAvailable": "true"
           }
         ]
@@ -640,11 +640,11 @@
       {
         "replies": [],
         "reviewer": "NinaC",
-        "rate": "4",
+        "rating": "4",
         "content": "Absolutely fantastic! The spice level was perfect.",
         "medias": [
           {
-            "link": "https://example.com/videos/spicy-tuna-roll.mp3",
+            "link": "./foodItems/videos/spicy-tuna-roll.mp3",
             "type": "Video"
           }
         ]
@@ -677,7 +677,7 @@
     "calorieUnit": "kcal",
     "servingSize": 0,
     "price": 9.99,
-    "image": "https://example.com/images/greek-salad.jpg",
+    "image": "./foodItems/greek_salad.jpeg",
     "customizations": [
       {
         "category": "Add-ons",
@@ -685,13 +685,13 @@
           {
             "name": "Grilled Chicken",
             "price": "1.50",
-            "image": "https://example.com/images/grilled-chicken-salad.jpg",
+            "image": "./foodItems/grilled-chicken-salad.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Extra Feta Cheese",
             "price": "0.00",
-            "image": "https://example.com/images/extra-feta.jpg",
+            "image": "./foodItems/extra-feta.jpeg",
             "isAvailable": "true"
           }
         ]
@@ -707,11 +707,11 @@
           }
         ],
         "reviewer": "SamJ",
-        "rate": "3",
+        "rating": "3",
         "content": "A very good salad, fresh and tasty. A bit more feta would be nice.",
         "medias": [
           {
-            "link": "https://example.com/images/greek-salad-review.jpg",
+            "link": "./foodItems/greek-salad-review.jpeg",
             "type": "Image"
           }
         ]
@@ -744,7 +744,7 @@
     "calorieUnit": "kcal",
     "servingSize": 1,
     "price": 8.99,
-    "image": "https://example.com/images/beef-tacos.jpg",
+    "image": "./foodItems/beef_tacos.jpeg",
     "customizations": [
       {
         "category": "Salsas",
@@ -752,13 +752,13 @@
           {
             "name": "Mild Salsa",
             "price": "-1.40",
-            "image": "https://example.com/images/mild-salsa.jpg",
+            "image": "./foodItems/mild-salsa.jpeg",
             "isAvailable": "true"
           },
           {
             "name": "Hot Salsa",
             "price": "-1.60",
-            "image": "https://example.com/images/hot-salsa.jpg",
+            "image": "./foodItems/hot-salsa.jpeg",
             "isAvailable": "true"
           }
         ]
@@ -774,11 +774,11 @@
           }
         ],
         "reviewer": "JakeP",
-        "rate": "3",
+        "rating": "3",
         "content": "Great tacos, but the beef could use a bit more seasoning.",
         "medias": [
           {
-            "link": "https://example.com/videos/beef-tacos.mp3",
+            "link": "./foodItems/videos/beef-tacos.mp3",
             "type": "Video"
           }
         ]

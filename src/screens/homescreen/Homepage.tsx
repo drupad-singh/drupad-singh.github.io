@@ -3,7 +3,6 @@ import { Layout } from "antd";
 import { Content } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
 import { Heading } from "../../Heading";
-import { geekblue } from "@ant-design/colors";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
   LayoutState,
@@ -16,7 +15,7 @@ import { Screen } from "../../Constants";
 import { Navbar } from "./Navbar";
 
 const contentStyle: React.CSSProperties = {
-  backgroundColor: geekblue[0],
+  backgroundColor: "#d9d9d9",
   padding: "25px",
   overflow: "scroll",
 };
@@ -55,6 +54,9 @@ export const Homepage: React.FC<props> = ({ screen }) => {
         break;
       case Screen.RestaurantListScreen:
         setSelectedNavItem(NavItem.RestaurantList);
+        break;
+      case Screen.RestaurantMenuScreen:
+        setSelectedNavItem(NavItem.MenuDemo);
         break;
       default:
         setSelectedNavItem(NavItem.Nothing);

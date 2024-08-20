@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Homepage } from "./screens/homescreen/Homepage";
 import { RecoilRoot } from "recoil";
 import { Screen } from "./Constants";
+import { ConfigProvider } from "antd";
 
 const router = createBrowserRouter([
   {
@@ -44,9 +45,12 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RecoilRoot>
-      <RouterProvider router={router} />
-    </RecoilRoot>
+    <ConfigProvider>
+      {" "}
+      <RecoilRoot>
+        <RouterProvider router={router} />
+      </RecoilRoot>
+    </ConfigProvider>
   );
 }
 

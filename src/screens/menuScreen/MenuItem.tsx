@@ -1,4 +1,15 @@
-import { Button, Col, Image, Row, Space, Typography } from "antd";
+import {
+  Button,
+  Col,
+  Collapse,
+  CollapseProps,
+  ConfigProvider,
+  Divider,
+  Image,
+  Row,
+  Space,
+  Typography,
+} from "antd";
 import {
   MinusOutlined,
   PlusOutlined,
@@ -10,6 +21,9 @@ import { CurrentCartItem } from "../../storage/RecoilState";
 import { MenuItem } from "../../types/MenuTypes";
 import { useMemo } from "react";
 import { theme } from "antd";
+import { NutritionDetails } from "./NutritionDetails";
+import { RatingComponent, ReviewComponent } from "../../components/Reviews";
+import { MenuItemButton } from "../../components/MenuItemButton";
 const { useToken } = theme;
 
 export const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
@@ -18,90 +32,65 @@ export const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
       new Array(5).fill(0).map((_, i) => {
         const rating = Math.floor(item.rating);
         return i + 1 > rating ? (
-          <StarOutlined style={{ color: "#FFD700" }} />
+          <StarOutlined style={{ color: "#ccb647" }} />
         ) : (
-          <StarFilled style={{ color: "#FFD700" }} />
+          <StarFilled style={{ color: "#ccb647" }} />
         );
       }),
     [item]
   );
 
-  const [cartItems, setCartItems] = useRecoilState(CurrentCartItem);
-  const itemInCart = cartItems[item.id];
-
-  console.log(cartItems);
-
-  const quantity = itemInCart ? itemInCart.quantity : 0;
-
-  const onItemAdd = () => {
-    const cartItem = cartItems[item.id];
-    if (cartItem) {
-      setCartItems({
-        ...cartItems,
-        [item.id]: { ...cartItem, quantity: cartItem.quantity + 1 },
-      });
-    } else {
-      setCartItems({
-        ...cartItems,
-        [item.id]: { item: item, quantity: 1 },
-      });
-    }
-  };
-  const onItemDelete = () => {
-    const cartItem = cartItems[item.id];
-    if (cartItem) {
-      setCartItems({
-        ...cartItems,
-        [item.id]: { ...cartItem, quantity: cartItem.quantity - 1 },
-      });
-    }
-  };
   const { token } = useToken();
-  const AddButton = quantity ? (
-    <Space direction="horizontal">
-      <Button
-        type={"primary"}
-        onClick={(_) => onItemAdd()}
-        style={{ border: "none", outline: "none" }}
-      >
-        <PlusOutlined />
-      </Button>
-      {quantity}
-      <Button type="primary" onClick={(_) => onItemDelete()}>
-        <MinusOutlined />
-      </Button>
-    </Space>
-  ) : (
-    <Button onClick={(_) => onItemAdd()} type={"primary"}>
-      <Space>
-        {"Add"}
-        <PlusOutlined style={{ color: "#f1f1f1" }} />
-      </Space>
-    </Button>
+
+  const items: CollapseProps["items"] = useMemo(
+    () => [
+      {
+        key: item.id,
+        label: "Nutrition Details & reviews",
+        children: (
+          <div>
+            <Row>
+              {item.nutrients.map((nutrition) => (
+                <NutritionDetails nutrition={nutrition} />
+              ))}
+            </Row>
+
+            <ReviewComponent reviews={item.reviews} />
+          </div>
+        ),
+      },
+    ],
+    []
   );
+
   return (
     <Col>
-      <Row justify={"space-between"}>
-        <Row justify={"start"} align={"middle"} gutter={16}>
-          <Col>
-            <Image src={item.image} width={50} height={50} />
-          </Col>
-          <Col>
-            <Space direction="vertical" size={0}>
-              <Typography.Text strong style={{ fontSize: "16px" }}>
-                {item.name}
-              </Typography.Text>
-              <Typography.Text strong>{item.price + " ₹"}</Typography.Text>
-              <Space>
-                <div>{ratingLogo}</div>
-                <Typography.Text strong>{item.rating}</Typography.Text>
+      <Space direction="vertical" style={{ width: "100%" }} size={20}>
+        <Row justify={"space-between"}>
+          <Row justify={"start"} align={"middle"} gutter={16}>
+            <Col>
+              <Image src={item.image} width={80} height={80} />
+            </Col>
+            <Col>
+              <Space direction="vertical" size={10}>
+                <Space direction="vertical" size={0}>
+                  <Typography.Text strong style={{ fontSize: "16px" }}>
+                    {item.name}
+                  </Typography.Text>
+                  <Space>
+                    <RatingComponent rating={item.rating} />
+                    <Typography.Text strong>{item.rating}</Typography.Text>
+                  </Space>
+                </Space>
+                <Typography.Text strong>{"₹ " + item.price}</Typography.Text>
               </Space>
-            </Space>
-          </Col>
+            </Col>
+          </Row>
+          <MenuItemButton item={item} />
         </Row>
-        {AddButton}
-      </Row>
-      <Typography.Paragraph>{item.description}</Typography.Paragraph>
+        <Typography.Paragraph>{item.description}</Typography.Paragraph>
+      </Space>
+      <Collapse bordered={false} items={items} size={"small"}></Collapse>
     </Col>
   );
 };

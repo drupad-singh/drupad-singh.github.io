@@ -17,9 +17,9 @@ export type Media = {
 export type Review = {
     replies: Reply[],
     reviewer: string,
-    rate: string,
+    rating: string,
     content: string,
-    medias: Media[]
+    medias: Media[],
 }
 
 

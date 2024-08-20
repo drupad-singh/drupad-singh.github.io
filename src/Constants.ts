@@ -4,6 +4,12 @@ export const FormDimens = {
    colSpan: 8
 }
 
+export const Constants = {
+  reviewListPageSize: 2
+}
+
+
+
 export enum Screen {
   MerchantOnboardingScreen,
   MerchantListScreen,

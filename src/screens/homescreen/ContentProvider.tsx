@@ -7,9 +7,9 @@ import MenuItem from "antd/es/menu/MenuItem";
 import { Menu } from "../menuScreen/Menu";
 import { CreateRestaurant } from "../restaurantManagement/CreateRestaurant";
 import { UpdateRestaurant } from "../restaurantManagement/UpdateRestaurant";
-import ErrorBoundary from "antd/es/alert/ErrorBoundary";
 import NotFound from "../../404";
 import { RestaurantList } from "../restaurantManagement/RestaurantList";
+import { ErrorBoundary } from "react-error-boundary";
 
 export function ContentProvider({ screen }): React.ReactElement<Screen> {
   const [dom, setDom] = useState(<></>);
