@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { CartItem } from "../../types/MenuTypes";
-import { Button, Drawer, Image, List, Row, Space, Typography } from "antd";
+import { Button, Col, Drawer, Image, List, Row, Space, Typography } from "antd";
 import { MenuItemButton } from "../../components/MenuItemButton";
 import { DeleteFilled, DeleteOutlined } from "@ant-design/icons";
 import { theme } from "antd";
@@ -27,8 +27,12 @@ export const CartItemComponent: React.FC<{
   );
 };
 
-export const OrderButton = () => {
-  return <Button type="primary">{"Place Order & Pay"}</Button>;
+export const OrderButton = ({ onClick }) => {
+  return (
+    <Button type="primary" onClick={onClick}>
+      {"Place Order & Pay"}
+    </Button>
+  );
 };
 
 export const Cart: React.FC<{
@@ -40,6 +44,7 @@ export const Cart: React.FC<{
     .toFixed(2);
 
   const itemsInCart = Object.values(cart).length;
+  const [showOrderSuccess, setShowOrderSuccess] = useState(false);
 
   return (
     <Drawer
@@ -48,20 +53,34 @@ export const Cart: React.FC<{
       onClose={closeDrawer}
       placement={"bottom"}
     >
-      <Space direction={"vertical"} size={40} style={{ width: "100%" }}>
-        <Space direction="vertical" style={{ width: "100%" }} size="large">
-          {Object.values(cart).map((item) => (
-            <CartItemComponent cartItem={item} />
-          ))}
+      {showOrderSuccess ? (
+        <Row justify={"center"}>
+          <Space
+            direction="vertical"
+            style={{ alignItems: "center", justifyItems: "center" }}
+          >
+            <Image src="./order_success.png" height={200} width={300} />
+            <Typography.Text strong type={"success"}>
+              {"Ooo la la Ooo la laah, your Order is Successful !!"}
+            </Typography.Text>
+          </Space>
+        </Row>
+      ) : (
+        <Space direction={"vertical"} size={40} style={{ width: "100%" }}>
+          <Space direction="vertical" style={{ width: "100%" }} size="large">
+            {Object.values(cart).map((item) => (
+              <CartItemComponent cartItem={item} />
+            ))}
+          </Space>
+          <Row justify={"space-between"}>
+            <Typography.Text>{"Total Amount (including GST) "}</Typography.Text>
+            <Typography.Text strong>{"₹ " + cartAmount}</Typography.Text>
+          </Row>
+          <Row justify={"end"}>
+            <OrderButton onClick={() => setShowOrderSuccess(true)} />
+          </Row>
         </Space>
-        <Row justify={"space-between"}>
-          <Typography.Text>{"Total Amount (including GST) "}</Typography.Text>
-          <Typography.Text strong>{"₹ " + cartAmount}</Typography.Text>
-        </Row>
-        <Row justify={"end"}>
-          <OrderButton />
-        </Row>
-      </Space>
+      )}
     </Drawer>
   );
 };

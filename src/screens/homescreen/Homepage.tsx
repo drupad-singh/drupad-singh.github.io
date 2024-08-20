@@ -13,6 +13,8 @@ import { ContentProvider } from "./ContentProvider";
 import React, { useEffect, useState } from "react";
 import { Screen } from "../../Constants";
 import { Navbar } from "./Navbar";
+import { useDeviceType } from "../../utils/Device";
+import { Device } from "../../types/Common";
 
 const contentStyle: React.CSSProperties = {
   backgroundColor: "#d9d9d9",
@@ -63,18 +65,20 @@ export const Homepage: React.FC<props> = ({ screen }) => {
     }
   }, [screen]);
 
+  const deviceType = useDeviceType();
+
   return (
     <Layout style={layoutStyle}>
       <Heading />
       <Layout>
         <Sider
-          width={"300px"}
+          width={deviceType == Device.Mobile ? "200px" : "300px"}
           style={siderStyle}
           collapsed={collapsed}
           onCollapse={(isCollpased) => setCollpased(isCollpased)}
           collapsible={true}
           trigger={null}
-          collapsedWidth={"100px"}
+          collapsedWidth={deviceType == Device.Mobile ? 0 : "100px"}
           onMouseEnter={(ev) => {
             setCollpased(false);
             ev.stopPropagation();

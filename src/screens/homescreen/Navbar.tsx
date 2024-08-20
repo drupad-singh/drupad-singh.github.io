@@ -93,6 +93,9 @@ export function Navbar() {
       mode="inline"
       items={items}
       onClick={onMenuItemClick}
+      style={{
+        textWrap: "wrap",
+      }}
     />
   );
 }

@@ -33,4 +33,9 @@ export type Address = {
     city: string;
     country: string;
   };
-  
+
+export enum Device {
+    Mobile="mobile",
+    Tablet="tablet",
+    Desktop="desktop"
+}

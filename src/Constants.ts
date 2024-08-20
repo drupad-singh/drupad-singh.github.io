@@ -1,7 +1,14 @@
 export const FormDimens = {
-   gutterSizeX: 24,
-   gutterSizeY: 48,
-   colSpan: 8
+
+   gutterSizeX: {
+    lg: 24, md: 18, sm: 14
+   },
+   gutterSizeY: {
+    lg: 48, md: 36, sm: 18
+   },
+   colSpan: {
+    lg: 12, md: 10, sm: 24
+   } 
 }
 
 export const Constants = {
