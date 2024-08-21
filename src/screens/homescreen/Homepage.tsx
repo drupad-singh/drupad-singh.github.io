@@ -18,7 +18,7 @@ import { Device } from "../../types/Common";
 
 const contentStyle: React.CSSProperties = {
   backgroundColor: "#d9d9d9",
-  padding: "25px",
+  padding: "20px",
   overflow: "scroll",
 };
 
@@ -40,7 +40,6 @@ export const Homepage: React.FC<props> = ({ screen }) => {
   const [_, setSelectedNavItem] = useRecoilState(SelectedNavItem);
   const [collapsed, setCollpased] = useRecoilState(LayoutState);
   useEffect(() => {
-    // TODO: update url when navitem changes
     // set navbar state on routing changes
     switch (screen) {
       case Screen.MerchantDeleteScreen:

@@ -67,22 +67,22 @@ export function Navbar() {
   const onMenuItemClick = ({ key }) => {
     switch (key) {
       case NavItem.MerchantOnboarding:
-        navigate("/merchant/create");
+        navigate("/merchant/create", { replace: true });
         break;
       case NavItem.MerchantList:
-        navigate("/merchant/list");
+        navigate("/merchant/list", { replace: true });
         break;
       case NavItem.RestaurantCreate:
-        navigate("/restaurant/create");
+        navigate("/restaurant/create", { replace: true });
         break;
       case NavItem.RestaurantList:
-        navigate("/restaurant/list");
+        navigate("/restaurant/list", { replace: true });
         break;
       case NavItem.MenuDemo:
-        navigate("/menu");
+        navigate("/menu", { replace: true });
         break;
       default:
-        navigate("/");
+        navigate("/", { replace: true });
     }
   };
 

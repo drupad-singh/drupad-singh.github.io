@@ -1,4 +1,4 @@
-import { Button, Collapse, Row, Space } from "antd";
+import { Button, Collapse, Empty, Row, Space } from "antd";
 import { Form } from "react-final-form";
 import {
   RestaurantAccordions,
@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from "react";
 import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import { AddressDetails } from "../../components/AddressDetails";
 import { BasicDetails } from "./BasicDetails";
+import { AppDetails } from "./AppDetails";
 
 type props = {
   handleFormSubmit: (m: RestaurantDetails) => undefined;
@@ -61,14 +62,16 @@ export const RestaurantForm = ({
       {
         key: RestaurantAccordions.AppDetails,
         label: "App Details",
-        children: <></>,
+        children: <AppDetails />,
         extra: deleteButton(RestaurantAccordions.AppDetails),
         visibility: restaurantDetails["appMetadata"] != undefined,
       },
     ];
   }, [restaurantDetails]);
 
-  const [visibleAccordions, setVisibleAccordions] = useState([]);
+  const [visibleAccordions, setVisibleAccordions] = useState([
+    allAccordionItems[0],
+  ]);
 
   useEffect(() => {
     setVisibleAccordions(allAccordionItems.filter((item) => item.visibility));
@@ -90,7 +93,7 @@ export const RestaurantForm = ({
           ).label}
       </Button>
     ) : (
-      <></>
+      <div />
     );
 
   return (
@@ -100,7 +103,7 @@ export const RestaurantForm = ({
     >
       {(prop) => (
         <form onSubmit={prop.handleSubmit}>
-          <Space direction="vertical" size={"large"}>
+          <Space direction="vertical" size={"large"} style={{ width: "100%" }}>
             <Collapse
               style={{ width: "100%" }}
               size="large"
@@ -117,7 +120,7 @@ export const RestaurantForm = ({
             />
             <Row justify={"space-between"}>
               {addDetailsButton()}
-              <Button type="primary" onClick={prop.handleSubmit}>
+              <Button type="primary" size="large" onClick={prop.handleSubmit}>
                 {ctaText}
               </Button>
             </Row>

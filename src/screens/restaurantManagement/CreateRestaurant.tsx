@@ -17,6 +17,7 @@ export const CreateRestaurant = () => {
       restaurantsStorage.save([updatedRestaurantDetails]);
     }
   };
+
   return (
     <RestaurantForm
       handleFormSubmit={handleFormSubmit}

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { MerchantOnboarding } from "../merchantManagement/MerchantOnboarding";
 import { MerchantUpdate } from "../merchantManagement/MerchantUpdate";
 import { Screen } from "../../Constants";
-import MenuItem from "antd/es/menu/MenuItem";
 import { Menu } from "../menuScreen/Menu";
 import { CreateRestaurant } from "../restaurantManagement/CreateRestaurant";
 import { UpdateRestaurant } from "../restaurantManagement/UpdateRestaurant";
@@ -43,7 +42,7 @@ export function ContentProvider({ screen }): React.ReactElement<Screen> {
   return (
     <ErrorBoundary fallback={<NotFound />}>
       {" "}
-      <div style={{ padding: "20px" }}>{dom}</div>
+      <div style={{ padding: "20px", background: "#f1f1f1" }}>{dom}</div>
     </ErrorBoundary>
   );
 }

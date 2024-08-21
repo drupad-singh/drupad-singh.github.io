@@ -127,30 +127,28 @@ export function MerchantForm({
     >
       {(prop) => (
         <form onSubmit={prop.handleSubmit}>
-          <Card>
-            <Space direction="vertical" size="large">
-              <Collapse
-                style={{ width: "100%" }}
-                size="large"
-                accordion={true}
-                items={visibleAccordions}
-                defaultActiveKey={[selectedAccordion]}
-                activeKey={selectedAccordion}
-                onChange={(key: string | string[]) => {
-                  if (Array.isArray(key)) {
-                    key = key[0] || "1";
-                  }
-                  setSelectedAccordion(parseInt(key));
-                }}
-              />
-              <Row justify="space-between">
-                {addDetailsButton()}
-                <Button type="primary" onClick={prop.handleSubmit}>
-                  {ctaText}
-                </Button>
-              </Row>
-            </Space>
-          </Card>
+          <Space direction="vertical" size="large">
+            <Collapse
+              style={{ width: "100%" }}
+              size="large"
+              accordion={true}
+              items={visibleAccordions}
+              defaultActiveKey={[selectedAccordion]}
+              activeKey={selectedAccordion}
+              onChange={(key: string | string[]) => {
+                if (Array.isArray(key)) {
+                  key = key[0] || "1";
+                }
+                setSelectedAccordion(parseInt(key));
+              }}
+            />
+            <Row justify="space-between">
+              {addDetailsButton()}
+              <Button type="primary" onClick={prop.handleSubmit}>
+                {ctaText}
+              </Button>
+            </Row>
+          </Space>
         </form>
       )}
     </Form>
