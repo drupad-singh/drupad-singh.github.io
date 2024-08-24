@@ -7,7 +7,7 @@ import { ConfigProvider } from "antd";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Homepage screen={Screen.MerchantOnboardingScreen} />,
+    element: <Homepage screen={Screen.LogInScreen} />,
   },
   {
     path: "/merchant/create",

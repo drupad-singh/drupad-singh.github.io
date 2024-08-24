@@ -13,6 +13,8 @@ import { useState } from "react";
 import { Field, FieldRenderProps } from "react-final-form";
 import { CloudUploadOutlined } from "@ant-design/icons";
 import { Maybe } from "../utils/Core";
+import { AllCountryCodes, CountryCode } from "../types/Merchant";
+import Password from "antd/es/input/Password";
 
 type fieldError = string;
 
@@ -129,6 +131,11 @@ export const NumberInputField = (customProps: CustomFieldProps) => {
       />
     )
   );
+};
+
+export type phoneNumberField = {
+  countryCode: string;
+  phoneNumber: string;
 };
 
 export const EmailInput: CustomField = (customProps: CustomFieldProps) => {
@@ -261,4 +268,74 @@ export function ImageUpload(
       )}
     </Upload>
   ));
+}
+
+export function PhoneInputField(
+  customProps: CustomFieldProps & {
+    countryCodeFieldName: string;
+  }
+): JSX.Element[] {
+  const validatePhoneNumber = (value) => {
+    const isValid =
+      Maybe.isNotEmpty(value.phoneNumber) &&
+      !/^\d{10}$/.test(value.phoneNumber);
+    return isValid ? undefined : "Phone Number should contain ten digits";
+  };
+  return [
+    SelectInput({
+      label: "Country Code",
+      name: customProps.countryCodeFieldName,
+      defaultValue: "+91 (India)",
+      width: 150,
+      options: AllCountryCodes.map((c) => {
+        return {
+          label: `${c.dial_code} (${c.name})`,
+          value: `${c.dial_code} (${c.name})`,
+          rowData: c,
+        };
+      }),
+      required: customProps.required,
+    }),
+    makeCustomField(
+      {
+        ...customProps,
+        label: customProps.label,
+        name: customProps.name,
+        validate: validatePhoneNumber,
+      },
+      (props) => (
+        <Input
+          disabled={customProps.disabled}
+          status={statusFromProps(props)}
+          size={"middle"}
+          allowClear={true}
+        />
+      )
+    ),
+  ];
+}
+
+export function PasswordInputField(customProps: CustomFieldProps) {
+  const validatePassword = (value) => {
+    const isValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(
+      value
+    );
+    return isValid
+      ? undefined
+      : "Passowrd must be atleast 8 characters in length and should contain atleast one lowercase,  uppercase letter and digit";
+  };
+  return makeCustomField(
+    {
+      ...customProps,
+      validate: validatePassword,
+    },
+    (props) => (
+      <Password
+        visibilityToggle={true}
+        size={"middle"}
+        allowClear={true}
+        status={statusFromProps(props)}
+      />
+    )
+  );
 }

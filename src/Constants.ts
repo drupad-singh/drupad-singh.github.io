@@ -26,5 +26,7 @@ export enum Screen {
   RestaurantCreateScreen,
   RestaurantUpdateScreen,
   RestaurantListScreen,
-
+  SignUpScreen,
+  LogInScreen,
+  HomeScreen
 }
