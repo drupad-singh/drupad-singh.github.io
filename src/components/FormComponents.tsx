@@ -29,6 +29,7 @@ type validateFn = (value: string) => fieldError;
 type CustomFieldProps<FieldSpecificProps extends object = {}> = {
   label: string;
   name: string;
+  width?: string | number;
   placeholder?: string | undefined;
   required?: boolean;
   disabled?: boolean;
@@ -75,7 +76,7 @@ function makeCustomField<FieldType>(
       }}
     >
       {(fieldProps) => (
-        <Space size="small" direction="vertical">
+        <Space size="small" direction="vertical" style={{ width: "100%" }}>
           {
             <Typography.Text>
               {" "}
@@ -104,6 +105,7 @@ export const TextInputField: CustomField = (customProps: CustomFieldProps) => {
   return makeCustomField(customProps, (props: FieldRenderProps<string>) => (
     <Input
       {...props.input}
+      width={customProps.width}
       status={statusFromProps(props)}
       size={"middle"}
       allowClear={true}
@@ -123,6 +125,7 @@ export const NumberInputField = (customProps: CustomFieldProps) => {
     { ...customProps, validate: validateInteger },
     (props: FieldRenderProps<string>) => (
       <Input
+        width={customProps.width}
         {...props.input}
         disabled={customProps.disabled}
         status={statusFromProps(props)}
@@ -147,6 +150,7 @@ export const EmailInput: CustomField = (customProps: CustomFieldProps) => {
     { ...customProps, validate: validateEmail },
     (props: FieldRenderProps<string>) => (
       <Input
+        width={customProps.width}
         {...props.input}
         disabled={customProps.disabled}
         status={statusFromProps(props)}
@@ -164,17 +168,15 @@ export function SelectInput<DataType>(
   customProps: CustomFieldProps<{
     options: fieldOption<DataType>[];
     defaultValue?: string;
-    width?: number;
-    optionRender?: OptionRender<DataType>;
+    // optionRender?: OptionRender<DataType>;
   }>
 ): JSX.Element {
   return makeCustomField(customProps, (props: FieldRenderProps<string>) => (
     <Select
-      style={{ width: customProps.width || 120 }}
-      defaultValue={customProps.defaultValue}
+      style={{ width: customProps.width || "100%" }}
       {...props.input}
       options={customProps.options}
-      optionRender={customProps.optionRender}
+      // optionRender={customProps.optionRender}
     />
   ));
 }
@@ -183,7 +185,6 @@ export function MultiSelect<DataType>(
   customProps: CustomFieldProps<{
     options: fieldOption<DataType>[];
     defaultValue: string[];
-    width?: number;
   }>
 ): JSX.Element {
   return makeCustomField(customProps, (props: FieldRenderProps<string>) => (
@@ -284,9 +285,9 @@ export function PhoneInputField(
   return [
     SelectInput({
       label: "Country Code",
+      width: customProps.width,
       name: customProps.countryCodeFieldName,
-      defaultValue: "+91 (India)",
-      width: 150,
+      value: "+91 (India)",
       options: AllCountryCodes.map((c) => {
         return {
           label: `${c.dial_code} (${c.name})`,
@@ -307,6 +308,7 @@ export function PhoneInputField(
         <Input
           disabled={customProps.disabled}
           status={statusFromProps(props)}
+          width={customProps.width}
           size={"middle"}
           allowClear={true}
         />

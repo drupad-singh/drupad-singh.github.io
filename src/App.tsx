@@ -3,11 +3,16 @@ import { Homepage } from "./screens/homescreen/Homepage";
 import { RecoilRoot } from "recoil";
 import { Screen } from "./Constants";
 import { ConfigProvider } from "antd";
+import { LogIn, SignUp } from "./screens/loginScreen/SignUp";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Homepage screen={Screen.LogInScreen} />,
+    path: "/signup",
+    element: <SignUp />,
+  },
+  {
+    path: "/login",
+    element: <LogIn />,
   },
   {
     path: "/merchant/create",

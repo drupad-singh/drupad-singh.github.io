@@ -9,6 +9,7 @@ import { UpdateRestaurant } from "../restaurantManagement/UpdateRestaurant";
 import NotFound from "../../404";
 import { RestaurantList } from "../restaurantManagement/RestaurantList";
 import { ErrorBoundary } from "react-error-boundary";
+import { SignUp } from "../loginScreen/SignUp";
 
 export function ContentProvider({ screen }): React.ReactElement<Screen> {
   const [dom, setDom] = useState(<></>);
@@ -34,6 +35,9 @@ export function ContentProvider({ screen }): React.ReactElement<Screen> {
         break;
       case Screen.RestaurantListScreen:
         setDom(<RestaurantList />);
+        break;
+      case Screen.LogInScreen:
+        setDom(<SignUp />);
         break;
       default:
         setDom(<></>);
