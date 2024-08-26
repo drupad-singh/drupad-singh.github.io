@@ -1,5 +1,6 @@
 import { Merchant } from "../types/Merchant";
 import { RestaurantDetails } from "../types/RestaurantTypes";
+import { AuthToken } from "./RecoilState";
 
 // type Serializable<Data> = {
 //   serialize: (data: Data) => string,
@@ -31,5 +32,8 @@ export function createStore<Data>(key: string): Storage<Data> {
   };
 }
 
-export const merchantsStorage: Storage<Merchant[]> = createStore("merchantDetails")
-export const restaurantsStorage: Storage<RestaurantDetails[]> = createStore("restaurantDetails")
+export const merchantsStorage: Storage<Merchant[]> =
+  createStore("merchantDetails");
+export const restaurantsStorage: Storage<RestaurantDetails[]> =
+  createStore("restaurantDetails");
+export const authTokenStorage: Storage<AuthToken> = createStore("authToken");

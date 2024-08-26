@@ -15,6 +15,8 @@ import { CodeBlock, dracula } from "react-code-blocks";
 import { useNavigate } from "react-router-dom";
 import { ColumnsType } from "antd/es/table";
 import { Address } from "../../types/Common";
+import { useCallApi } from "../../utils/Api";
+import { Endpoints } from "../../Constants";
 
 const columns = (
   editAction: (m: Merchant) => void,
@@ -67,6 +69,16 @@ export function MerchantList() {
   const [merchants, setMerchants] = useState<Merchant[]>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
   let navigate = useNavigate();
+  const callApi = useCallApi<object>();
+  useEffect(() => {
+    callApi(Endpoints.searchMerchant())
+      .then((data) => {
+        console.log("successful ", data);
+      })
+      .catch((err) => {
+        console.log("error ", err);
+      });
+  }, []);
   const expandedRowRender = (merchants) => {
     return (
       <CodeBlock

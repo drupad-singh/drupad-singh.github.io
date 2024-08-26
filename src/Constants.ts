@@ -35,7 +35,6 @@ export enum Screen {
   LogInScreen,
   HomeScreen,
 }
-
 const base = import.meta.env.VITE_API_BASE;
 
 export type Endpoint = {
@@ -63,5 +62,9 @@ export const Endpoints = {
   updateMerchant: (params) => ({
     method: Method.Put,
     url: base + "/merchants/" + params.pathParams["merchantId"],
+  }),
+  searchMerchant: () => ({
+    method: Method.Get,
+    url: base + "/merchants/search",
   }),
 };

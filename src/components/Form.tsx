@@ -1,18 +1,23 @@
 import React from "react";
 import { Form as FinalForm, FormRenderProps } from "react-final-form";
 import { validateError } from "../types/FormTypes";
-import { FormProps } from "antd";
 
-export const Form: (props: FormRenderProps<JSON>) => React.ReactNode = ({
+interface FormValues {
+  [key: string]: any;
+}
+
+interface FormProps {
+  handleFormSubmit: (values: FormValues) => void;
+  initialValues?: FormValues;
+  validate?: (values: FormValues) => validateError;
+  children?: (props: FormRenderProps<FormValues>) => React.ReactNode;
+}
+
+export const Form: (props: FormProps) => React.ReactNode = ({
   handleFormSubmit,
-  initialValues = null,
+  initialValues = {},
   validate,
   children,
-}: {
-  handleFormSubmit: (json: JSON) => void;
-  initialValues?: JSON;
-  validate?: ((json: JSON) => validateError) | undefined;
-  children?: (prop: FormRenderProps<JSON>) => React.ReactNode;
 }) => {
   return (
     <FinalForm

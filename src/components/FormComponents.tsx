@@ -10,7 +10,7 @@ import {
   UploadProps,
 } from "antd";
 import { useState } from "react";
-import { Field, FieldRenderProps } from "react-final-form";
+import { Field, FieldRenderProps, useForm } from "react-final-form";
 import { CloudUploadOutlined } from "@ant-design/icons";
 import { Maybe } from "../utils/Core";
 import { AllCountryCodes, CountryCode } from "../types/Merchant";
@@ -47,6 +47,13 @@ type FieldRenderer<FieldType> = (
 function ErrorMessage(props: { msg: string }) {
   return <Typography.Text type="danger">{props.msg}</Typography.Text>;
 }
+
+export const FormSpy = () => {
+  const form = useForm();
+  const formState = form.getState();
+  console.log("form state here ", formState, formState.values);
+  return <></>;
+};
 
 const composeValidators =
   (...validators) =>
@@ -277,9 +284,7 @@ export function PhoneInputField(
   }
 ): JSX.Element[] {
   const validatePhoneNumber = (value) => {
-    const isValid =
-      Maybe.isNotEmpty(value.phoneNumber) &&
-      !/^\d{10}$/.test(value.phoneNumber);
+    const isValid = Maybe.isNotEmpty(value) && /^\d{10}$/.test(value);
     return isValid ? undefined : "Phone Number should contain ten digits";
   };
   return [
@@ -287,11 +292,10 @@ export function PhoneInputField(
       label: "Country Code",
       width: customProps.width,
       name: customProps.countryCodeFieldName,
-      value: "+91 (India)",
       options: AllCountryCodes.map((c) => {
         return {
           label: `${c.dial_code} (${c.name})`,
-          value: `${c.dial_code} (${c.name})`,
+          value: `${c.dial_code}`,
           rowData: c,
         };
       }),
@@ -304,8 +308,9 @@ export function PhoneInputField(
         name: customProps.name,
         validate: validatePhoneNumber,
       },
-      (props) => (
+      (props: FieldRenderProps<string>) => (
         <Input
+          {...props.input}
           disabled={customProps.disabled}
           status={statusFromProps(props)}
           width={customProps.width}
@@ -331,12 +336,13 @@ export function PasswordInputField(customProps: CustomFieldProps) {
       ...customProps,
       validate: validatePassword,
     },
-    (props) => (
+    (props: FieldRenderProps<string>) => (
       <Password
         visibilityToggle={true}
         size={"middle"}
         allowClear={true}
         status={statusFromProps(props)}
+        {...props.input}
       />
     )
   );

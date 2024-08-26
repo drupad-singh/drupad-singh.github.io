@@ -1,4 +1,4 @@
-import Recoil, { RecoilRootProps } from "recoil";
+import Recoil, { RecoilRootProps, RecoilState } from "recoil";
 import { CartItem, MenuItem } from "../types/MenuTypes";
 
 export enum NavItem {
@@ -23,4 +23,14 @@ export const SelectedNavItem = Recoil.atom({
 export const CurrentCartItem = Recoil.atom<{ [key: string]: CartItem }>({
   key: "currentCartItems",
   default: {},
+});
+
+export type AuthToken = {
+  accessToken: null | string;
+  refreshToken: null | string;
+};
+
+export const AuthState: RecoilState<AuthToken> = Recoil.atom({
+  key: "authToken",
+  default: { accessToken: null, refreshToken: null },
 });
