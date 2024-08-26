@@ -11,6 +11,8 @@ const snakeToCamel = (data: object) => {
       let value;
       if (typeof v == "object" && !Array.isArray(v) && v != null) {
         value = snakeToCamel(v);
+      } else if (Array.isArray(v)) {
+        value = v.map((item) => snakeToCamel(item));
       } else {
         value = v;
       }
@@ -26,6 +28,8 @@ const camelToSnake = (data: object) => {
       let value;
       if (typeof v == "object" && !Array.isArray(v) && v != null) {
         value = camelToSnake(v);
+      } else if (Array.isArray(v)) {
+        value = v.map((item) => camelToSnake(item));
       } else {
         value = v;
       }
@@ -63,10 +67,10 @@ export const refreshToken = (authToken, setAuthToken) => {
   })
     .then((r) => r.json())
     .then((response) => {
-      if (response.status == 200) {
+      if (response.success) {
         setAuthToken({
-          accessToken: response.body.data.access_token,
-          refreshToken: response.body.data.refresh_token,
+          accessToken: response.data.access_token,
+          refreshToken: response.data.refresh_token,
         });
       } else {
         throw response;
@@ -91,11 +95,12 @@ export const useCallApi = <Data>() => {
   }) => {
     const headers = {
       "Content-Type": "application/json",
+      "ngrok-skip-browser-warning": true,
       ...(useAuth ? { Authorization: "Bearer " + authToken.accessToken } : {}),
       ...(options?.headers ? options.headers : {}),
     };
     const body =
-      typeof options.body == "object"
+      typeof options?.body == "object"
         ? JSON.stringify(camelToSnake(options.body))
         : null;
     return fetch(url, {

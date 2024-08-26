@@ -44,8 +44,7 @@ export const MenuItemButton: React.FC<{ item: MenuItem }> = ({ item }) => {
       });
     }
   };
-  console.log("cartItems", cartItems);
-  const token = getDesignToken();
+
   return currentCartItem ? (
     <Space direction="horizontal">
       <Button

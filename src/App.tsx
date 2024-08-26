@@ -9,9 +9,9 @@ import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil";
 import { Screen } from "./Constants";
 import { ConfigProvider } from "antd";
 import { LogIn, SignUp } from "./screens/loginScreen/SignUp";
-import { verifyAccessToken } from "./utils/Api";
+import { refreshToken, useCallApi, verifyAccessToken } from "./utils/Api";
 import { AuthState } from "./storage/RecoilState";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { authTokenStorage } from "./storage/LocalStorage";
 
 const router = (authenticated) => {
@@ -71,21 +71,41 @@ const router = (authenticated) => {
 
 function App() {
   const [authToken, setAuthToken] = useRecoilState(AuthState);
+  const [authenticated, setAuthenticated] = useState(false);
+
   useEffect(() => {
-    const token = authTokenStorage.fetch();
-    console.log("token", token);
-    if (token != null) {
-      setAuthToken(token);
+    try {
+      const localToken = authTokenStorage.fetch();
+      const isValid = verifyAccessToken(localToken);
+      if (!isValid) {
+        refreshToken(localToken, (token) => {
+          console.log("refresh token", token);
+          setAuthToken(token);
+          authTokenStorage.save(token);
+        }).catch((e) => {
+          authTokenStorage.save(null);
+          console.log(e);
+        });
+      } else {
+        setAuthToken(localToken);
+      }
+    } catch (e) {
+      authTokenStorage.save(null);
+      setAuthenticated(false);
+      console.error("Local Token is not valid");
     }
   }, []);
-  console.log(authToken);
-  const isTokenValid = useMemo(() => {
-    return verifyAccessToken(authToken);
+
+  useEffect(() => {
+    const isValid = verifyAccessToken(authToken);
+    if (isValid) {
+      setAuthenticated(true);
+    }
   }, [authToken]);
-  console.log("isTokenValid", isTokenValid);
+
   return (
     <ConfigProvider>
-      <RouterProvider router={router(isTokenValid)} />
+      <RouterProvider router={router(authenticated)} />
     </ConfigProvider>
   );
 }

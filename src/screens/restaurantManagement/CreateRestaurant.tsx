@@ -2,6 +2,7 @@ import { restaurantsStorage } from "../../storage/LocalStorage";
 import { RestaurantDetails } from "../../types/RestaurantTypes";
 import { v4 as uuidv4 } from "uuid";
 import { RestaurantForm } from "./RestaurantForm";
+import { ScreenWrapper } from "../../components/ScreenWrapper";
 
 export const CreateRestaurant = () => {
   const handleFormSubmit = (updatedRestaurantDetails: RestaurantDetails) => {
@@ -19,10 +20,12 @@ export const CreateRestaurant = () => {
   };
 
   return (
-    <RestaurantForm
-      handleFormSubmit={handleFormSubmit}
-      restaurantDetails={{}}
-      ctaText={"Add Restaurant"}
-    />
+    <ScreenWrapper>
+      <RestaurantForm
+        handleFormSubmit={handleFormSubmit}
+        restaurantDetails={{}}
+        ctaText={"Add Restaurant"}
+      />
+    </ScreenWrapper>
   );
 };

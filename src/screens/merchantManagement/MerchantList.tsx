@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { merchantsStorage } from "../../storage/LocalStorage";
-import { Merchant } from "../../types/Merchant";
+import { Merchant, MerchantResponse } from "../../types/Merchant";
 import {
   Button,
   Empty,
@@ -17,6 +17,7 @@ import { ColumnsType } from "antd/es/table";
 import { Address } from "../../types/Common";
 import { useCallApi } from "../../utils/Api";
 import { Endpoints } from "../../Constants";
+import { ScreenWrapper } from "../../components/ScreenWrapper";
 
 const columns = (
   editAction: (m: Merchant) => void,
@@ -68,17 +69,24 @@ const columns = (
 export function MerchantList() {
   const [merchants, setMerchants] = useState<Merchant[]>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
-  let navigate = useNavigate();
-  const callApi = useCallApi<object>();
+  const navigate = useNavigate();
+  const callApi = useCallApi<MerchantResponse>();
+
   useEffect(() => {
     callApi(Endpoints.searchMerchant())
-      .then((data) => {
-        console.log("successful ", data);
+      .then((response) => {
+        if (response.success) {
+          setMerchants(response.data.items);
+          setShowLoader(false);
+        }
+        throw response.errorMessage;
       })
       .catch((err) => {
-        console.log("error ", err);
+        setShowLoader(false);
+        console.log("[search] error ", err);
       });
   }, []);
+
   const expandedRowRender = (merchants) => {
     return (
       <CodeBlock
@@ -95,13 +103,6 @@ export function MerchantList() {
   };
   const onDeleteAction = (merchant: Merchant) => {};
 
-  useEffect(() => {
-    const _merchantDetails = merchantsStorage.fetch();
-    if (_merchantDetails != null) {
-      setMerchants(_merchantDetails);
-    }
-    setShowLoader(false);
-  }, []);
   let tableDom = <></>;
   if (!showLoader) {
     tableDom = (
@@ -118,7 +119,7 @@ export function MerchantList() {
   return (
     <>
       <Skeleton active loading={showLoader} />
-      {tableDom}
+      <ScreenWrapper>{tableDom}</ScreenWrapper>
     </>
   );
 }

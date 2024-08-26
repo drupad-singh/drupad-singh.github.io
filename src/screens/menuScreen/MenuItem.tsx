@@ -25,8 +25,8 @@ export const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
         children: (
           <div>
             <Row>
-              {item.nutrients.map((nutrition) => (
-                <NutritionDetails nutrition={nutrition} />
+              {item.nutrients.map((nutrition, index) => (
+                <NutritionDetails nutrition={nutrition} key={index} />
               ))}
             </Row>
 

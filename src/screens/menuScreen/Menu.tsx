@@ -45,9 +45,13 @@ export const Menu = () => {
   return (
     <>
       <Card style={{ background: "" }}>
-        <Space direction="vertical" size={"middle"} style={{ width: "100%" }}>
+        <Space
+          direction="vertical"
+          size={"middle"}
+          style={{ width: "100%", padding: "0px" }}
+        >
           {SampleItems.map((item, index) => (
-            <div>
+            <div key={index}>
               <MenuItemComponent item={item} />
               <Divider
                 plain

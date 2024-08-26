@@ -18,7 +18,7 @@ import { Device } from "../../types/Common";
 
 const contentStyle: React.CSSProperties = {
   backgroundColor: "#d9d9d9",
-  padding: "20px",
+  // padding: "20px",
   overflow: "scroll",
 };
 

@@ -89,9 +89,9 @@ export const RatingComponent: React.FC<{ rating: number }> = ({ rating }) => {
       {new Array(5).fill(0).map((_, i) => {
         const integerRating = Math.floor(rating);
         return i + 1 > integerRating ? (
-          <StarOutlined style={{ color: "#ccb647" }} />
+          <StarOutlined key={i} style={{ color: "#ccb647" }} />
         ) : (
-          <StarFilled style={{ color: "#ccb647" }} />
+          <StarFilled key={i} style={{ color: "#ccb647" }} />
         );
       })}{" "}
     </div>

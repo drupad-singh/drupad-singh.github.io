@@ -10,18 +10,18 @@ export function BankDetails() {
       columns={[
         NumberInputField({
           label: "Account Number",
-          name: "bankDetails.accountNumber",
+          name: "details.bankDetails.accountNumber",
           required: true,
         }),
         TextInputField({ label: "IFSC Code", name: "bankDetails.ifscCode" }),
         TextInputField({
           label: "Bank Name",
-          name: "bankDetails.bankName",
+          name: "details.bankDetails.bankName",
           required: true,
         }),
         TextInputField({
           label: "Branch Name",
-          name: "bankDetails.branchName",
+          name: "details.bankDetails.branchName",
           required: true,
         }),
       ]}

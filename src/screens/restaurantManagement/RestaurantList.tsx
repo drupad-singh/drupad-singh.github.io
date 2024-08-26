@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CodeBlock, dracula } from "react-code-blocks";
 import { restaurantsStorage } from "../../storage/LocalStorage";
+import { ScreenWrapper } from "../../components/ScreenWrapper";
 
 const columns = (
   editAction: (r: RestaurantDetails) => void,
@@ -81,8 +82,10 @@ export const RestaurantList = () => {
   }
   return (
     <>
-      <Skeleton active loading={showLoader} />
-      {tableDom}
+      <ScreenWrapper>
+        <Skeleton active loading={showLoader} />
+        {tableDom}
+      </ScreenWrapper>
     </>
   );
 };

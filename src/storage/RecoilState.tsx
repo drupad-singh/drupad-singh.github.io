@@ -1,5 +1,6 @@
 import Recoil, { RecoilRootProps, RecoilState } from "recoil";
 import { CartItem, MenuItem } from "../types/MenuTypes";
+import { authTokenStorage } from "./LocalStorage";
 
 export enum NavItem {
   MerchantOnboarding = "merchant_onboarding",

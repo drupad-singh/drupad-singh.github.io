@@ -46,7 +46,8 @@ export function ContentProvider({ screen }): React.ReactElement<Screen> {
   return (
     <ErrorBoundary fallback={<NotFound />}>
       {" "}
-      <div style={{ padding: "20px", background: "#f1f1f1" }}>{dom}</div>
+      {/* <div style={{ padding: "20px", background: "#f1f1f1" }}>{dom}</div> */}
+      {dom}
     </ErrorBoundary>
   );
 }

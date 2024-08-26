@@ -1,33 +1,25 @@
 import { TextInputField } from "../../components/FormComponents";
 import { FormGrid } from "../../components/FormGrid";
 
-export function FinancialDetails() {
+export function TaxDetails() {
   return (
     <FormGrid
       columns={[
         TextInputField({
           label: "GST Number",
-          name: "financialDetails.gstNumber",
-          required: true,
+          name: "details.taxDetails.gstNumber",
         }),
         TextInputField({
           label: "TAN Number",
-          name: "financialDetails.tanNumber",
-          required: true,
+          name: "details.taxDetails.tinNumber",
         }),
         TextInputField({
           label: "CIN Number",
-          name: "financialDetails.cinNumber",
-          required: true,
-        }),
-        TextInputField({
-          label: "PAN Name",
-          name: "financialDetails.panName",
-          required: true,
+          name: "details.taxDetails.cinNumber",
         }),
         TextInputField({
           label: "PAN Number",
-          name: "financialDetails.panNumber",
+          name: "details.taxDetails.panNumber",
           required: true,
         }),
       ]}

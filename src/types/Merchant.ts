@@ -1,28 +1,30 @@
-import CountryCodes from "../assets/countryCode.json"
-import { Maybe, maybe } from "../utils/Core"
-import { Address } from "./Common"
+import CountryCodes from "../assets/countryCode.json";
+import { Maybe, maybe } from "../utils/Core";
+import { Address } from "./Common";
 
 export type CountryCode = {
-  name: string,
-  dial_code: string,
-  code: string
-}
-
+  name: string;
+  dial_code: string;
+  code: string;
+};
 
 export enum Details {
   AddressDetails,
   PersonalDetails,
-  FinancialDetails,
+  TaxDetails,
   BankDetails,
 }
 
 //@ts-ignore
-export const AllCountryCodes: CountryCode[] = CountryCodes
-const indiaCode: CountryCode = Maybe.fromMaybe(CountryCodes.find(c => c.name=="India") ,{
-  name: "India",
-  dial_code: "+91",
-  code: "IN"
-})
+export const AllCountryCodes: CountryCode[] = CountryCodes;
+const indiaCode: CountryCode = Maybe.fromMaybe(
+  CountryCodes.find((c) => c.name == "India"),
+  {
+    name: "India",
+    dial_code: "+91",
+    code: "IN",
+  }
+);
 
 /**
  * {
@@ -56,19 +58,16 @@ const indiaCode: CountryCode = Maybe.fromMaybe(CountryCodes.find(c => c.name=="I
 }
  */
 
-
-
-type FinancialDetails = {
-  gstNumber: string,
-  tanNumber: string,
-  cinNumber: string,
-  panNumber: string,
-  panName: string
-}
+type TaxDetails = {
+  gstNumber?: string;
+  tinNumber?: string;
+  cinNumber?: string;
+  panNumber: string;
+};
 
 type Image = {
-  url: string
-}
+  url: string;
+};
 
 // export type WebsiteDetails = {
 //   shopLogo: Image,
@@ -79,20 +78,30 @@ type Image = {
 // }
 
 export type BankDetails = {
-  accountName: string,
-  accountNumber: string,
-  ifscCode: string,
-  bankName: string,
-  branchName: string
-}
+  accountName: string;
+  accountNumber: string;
+  ifscCode: string;
+  bankName: string;
+  branchName: string;
+};
+
+export type AdditionalDetails = {
+  taxDetails?: TaxDetails;
+  bankDetails?: BankDetails;
+};
 
 export type Merchant = {
-  id: string,
-  name: string,
-  phoneNumber: string,
-  countryCode: string,
-  email: string,
-  address: Address | undefined,
-  financialDetails: FinancialDetails | undefined,
-  bankDetails: BankDetails | undefined
-}
+  id: string;
+  name: string;
+  phoneNumber: string;
+  countryCode: string;
+  email: string;
+  address?: Address;
+  details?: AdditionalDetails;
+};
+
+export type MerchantResponse = {
+  items: Merchant[];
+  pageNo: number;
+  pageSize: number;
+};

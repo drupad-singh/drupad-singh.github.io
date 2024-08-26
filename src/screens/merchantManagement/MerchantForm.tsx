@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Details, Merchant } from "../../types/Merchant";
-import { Button, Card, Collapse, Row, Space } from "antd";
+import { Button, Collapse, Row, Space } from "antd";
 import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
-import { FinancialDetails } from "./FinancialDetails";
+import { TaxDetails } from "./TaxDetails";
 import { BankDetails } from "./BankDetails";
 import { validateError } from "../../types/FormTypes";
 import { Maybe } from "../../utils/Core";
@@ -58,21 +58,25 @@ export function MerchantForm({
         label: "Address Details",
         children: <AddressDetails />,
         extra: deleteButton(Details.AddressDetails),
-        visibility: merchantDetails["address"] != undefined,
+        visibility: merchantDetails["address"],
       },
       {
-        key: Details.FinancialDetails,
-        label: "Financial Details",
-        children: <FinancialDetails />,
-        extra: deleteButton(Details.FinancialDetails),
-        visibility: merchantDetails["financialDetails"] != undefined,
+        key: Details.TaxDetails,
+        label: "Tax Details",
+        children: <TaxDetails />,
+        extra: deleteButton(Details.TaxDetails),
+        visibility:
+          merchantDetails["details"] &&
+          merchantDetails["details"]["taxDetails"],
       },
       {
         key: Details.BankDetails,
         label: "Bank Details",
         children: <BankDetails />,
         extra: deleteButton(Details.BankDetails),
-        visibility: merchantDetails["bankDetails"] != undefined,
+        visibility:
+          merchantDetails["details"] &&
+          merchantDetails["details"]["bankDetails"],
       },
     ];
   }, [merchantDetails]);
