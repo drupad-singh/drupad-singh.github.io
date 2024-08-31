@@ -13,12 +13,15 @@ import { AddressDetails } from "../../components/AddressDetails";
 type props = {
   handleFormSubmit: (m: Merchant) => undefined;
   merchantDetails: JSON;
+  ctaText: string;
+  showPrimaryButtonLoader?: boolean;
 };
 
 export function MerchantForm({
   handleFormSubmit,
   merchantDetails,
   ctaText,
+  showPrimaryButtonLoader = false,
 }): React.ReactElement<props> {
   const [selectedAccordion, setSelectedAccordion] = useState(
     Details.PersonalDetails
@@ -55,10 +58,15 @@ export function MerchantForm({
       },
       {
         key: Details.AddressDetails,
-        label: "Address Details",
+        label: (
+          <Row justify="space-between">
+            {"Address Details"}
+            <div style={{ color: "#bd3333" }}>{"* required"}</div>
+          </Row>
+        ),
         children: <AddressDetails />,
-        extra: deleteButton(Details.AddressDetails),
-        visibility: merchantDetails["address"],
+        forceRender: true,
+        visibility: true,
       },
       {
         key: Details.TaxDetails,
@@ -85,12 +93,6 @@ export function MerchantForm({
   useEffect(() => {
     setVisibleAccordions(allAccordionItems.filter((item) => item.visibility));
   }, [allAccordionItems]);
-  console.log(
-    "visibleAccordions",
-    visibleAccordions,
-    merchantDetails,
-    allAccordionItems
-  );
 
   const addDetailsButton = () =>
     visibleAccordions.length != allAccordionItems.length ? (
@@ -148,7 +150,12 @@ export function MerchantForm({
             />
             <Row justify="space-between">
               {addDetailsButton()}
-              <Button type="primary" onClick={prop.handleSubmit}>
+              <Button
+                type="primary"
+                onClick={prop.handleSubmit}
+                loading={showPrimaryButtonLoader}
+                disabled={prop.hasValidationErrors}
+              >
                 {ctaText}
               </Button>
             </Row>

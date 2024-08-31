@@ -5,7 +5,7 @@ import { useRecoilValue } from "recoil";
 import { AuthState } from "../storage/RecoilState";
 
 type props = {
-  children: React.ReactNode;
+  children: React.ReactNode
   url: string;
   method: Method;
   body?: object;

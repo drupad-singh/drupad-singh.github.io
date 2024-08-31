@@ -99,7 +99,7 @@ export const RestaurantForm = ({
   return (
     <Form
       onSubmit={handleFormSubmit}
-      initialValues={{ id: "1", countryCode: "+91 (India)" }}
+      initialValues={{ id: "1", countryCode: "+91" }}
     >
       {(prop) => (
         <form onSubmit={prop.handleSubmit}>

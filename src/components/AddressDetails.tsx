@@ -14,6 +14,7 @@ export const AddressDetails = () => {
       const { districtName, stateName } = pincodeDir.lookup(pinCode)[0];
       formState.values.address.state = stateName;
       formState.values.address.city = districtName;
+      formState.values.address.country = "India";
     }
   }, [pinCode]);
   return (
