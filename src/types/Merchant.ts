@@ -94,6 +94,7 @@ export type Merchant = {
   id: string;
   name: string;
   phoneNumber: string;
+  slug: string;
   countryCode: string;
   email: string;
   address?: Address;

@@ -1,16 +1,6 @@
 import { useEffect, useState } from "react";
-import { merchantsStorage } from "../../storage/LocalStorage";
 import { Merchant, MerchantResponse } from "../../types/Merchant";
-import {
-  Button,
-  Empty,
-  Skeleton,
-  Space,
-  Table,
-  TableProps,
-  Typography,
-} from "antd";
-import { maybe } from "../../utils/Core";
+import { Button, Skeleton, Space, Table, Typography } from "antd";
 import { CodeBlock, dracula } from "react-code-blocks";
 import { useNavigate } from "react-router-dom";
 import { ColumnsType } from "antd/es/table";
@@ -18,6 +8,8 @@ import { Address } from "../../types/Common";
 import { useCallApi } from "../../utils/Api";
 import { Endpoints } from "../../Constants";
 import { ScreenWrapper } from "../../components/ScreenWrapper";
+import { useRecoilState } from "recoil";
+import { MerchantsState } from "../../storage/RecoilState";
 
 const columns = (
   editAction: (m: Merchant) => void,
@@ -59,7 +51,9 @@ const columns = (
       return (
         <Space>
           <Button onClick={() => editAction(record)}>Edit </Button>
-          <Button onClick={() => deleteAction(record)}>Delete</Button>
+          <Button danger={true} onClick={() => deleteAction(record)}>
+            Delete
+          </Button>
         </Space>
       );
     },
@@ -67,8 +61,8 @@ const columns = (
 ];
 
 export function MerchantList() {
-  const [merchants, setMerchants] = useState<Merchant[]>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
+  const [merchants, setMerchants] = useRecoilState(MerchantsState);
   const navigate = useNavigate();
   const callApi = useCallApi<MerchantResponse>();
 
@@ -101,6 +95,8 @@ export function MerchantList() {
   const onEditAction = (merchant: Merchant) => {
     navigate(`/${merchant.id}/update`);
   };
+
+  // TODO: to be implemented
   const onDeleteAction = (merchant: Merchant) => {};
 
   let tableDom = <></>;

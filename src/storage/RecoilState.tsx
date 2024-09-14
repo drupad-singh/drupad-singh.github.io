@@ -1,6 +1,8 @@
 import Recoil, { RecoilRootProps, RecoilState } from "recoil";
 import { CartItem, MenuItem } from "../types/MenuTypes";
 import { authTokenStorage } from "./LocalStorage";
+import { Merchant } from "../types/Merchant";
+import { RestaurantDetails } from "../types/RestaurantTypes";
 
 export enum NavItem {
   MerchantOnboarding = "merchant_onboarding",
@@ -10,6 +12,16 @@ export enum NavItem {
   RestaurantList = "restaurant_list",
   MenuDemo = "menu_demo",
 }
+
+export const MerchantsState = Recoil.atom<Merchant[]>({
+  key: "merchants",
+  default: [],
+});
+
+export const RestaurantsState = Recoil.atom<RestaurantDetails[]>({
+  key: "restaurants",
+  default: [],
+});
 
 export const LayoutState = Recoil.atom({
   key: "layoutState",

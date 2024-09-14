@@ -35,6 +35,10 @@ const router = (authenticated) => {
       element: <LogIn />,
     },
     privateRoute({
+      path: "/",
+      element: <Homepage screen={Screen.RestaurantMenuScreen} />,
+    }),
+    privateRoute({
       path: "/merchant/create",
       element: <Homepage screen={Screen.MerchantOnboardingScreen} />,
     }),

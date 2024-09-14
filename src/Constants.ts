@@ -1,3 +1,4 @@
+import create from "@ant-design/icons/lib/components/IconFont";
 import { Method } from "./types/ApiTypes";
 
 export const FormDimens = {
@@ -42,29 +43,78 @@ export type Endpoint = {
   url: string;
 };
 
-export type CreateEndpoint<pathParams, queryParams> = (_: {
-  pathParams?: pathParams;
-  queryParams?: queryParams;
-}) => Endpoint;
+export type Params = {
+  pathParams?: { [key in string]: string };
+  queryParams?: { [key in string]: string };
+};
+
+export const encodeQueryParams = (queryParams: object) => {
+  return Object.entries(queryParams)
+    .map(([k, v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
+    .join("&");
+};
+
+export const createEndpoint = ({
+  method,
+  url,
+}: {
+  method: Method;
+  url: string;
+}) => {
+  return (params?: Params) => {
+    if (params?.pathParams) {
+      Object.entries(params.pathParams).forEach(([k, v]) => {
+        url = url.replaceAll(":" + k, v);
+      });
+    }
+    if (params?.queryParams) {
+      const queryString = params?.queryParams
+        ? "?" + encodeQueryParams(params.queryParams)
+        : "";
+      url += queryString;
+    }
+    return {
+      method,
+      url,
+    };
+  };
+};
 
 export const Endpoints = {
-  userSignup: () => ({ method: Method.Post, url: base + "/users/signup" }),
-  userLogin: () => ({ method: Method.Post, url: base + "/users/login" }),
-  refreshToken: () => ({
+  userSignup: createEndpoint({
+    method: Method.Post,
+    url: base + "/users/signup",
+  }),
+  userLogin: createEndpoint({
+    method: Method.Post,
+    url: base + "/users/login",
+  }),
+  refreshToken: createEndpoint({
     method: Method.Post,
     url: base + "/auth/refresh_access_token",
   }),
-  assignRoles: () => ({
+  assignRoles: createEndpoint({
     method: Method.Post,
     url: base + "/admin/assign_roles",
   }),
-  createMerchant: () => ({ method: Method.Post, url: base + "/merchants" }),
-  updateMerchant: (params) => ({
-    method: Method.Put,
-    url: base + "/merchants/" + params.pathParams["merchantId"],
+  createMerchant: createEndpoint({
+    method: Method.Post,
+    url: base + "/merchants",
   }),
-  searchMerchant: () => ({
+  updateMerchant: createEndpoint({
+    method: Method.Put,
+    url: base + "/merchants/:merchantId",
+  }),
+  searchMerchant: createEndpoint({
     method: Method.Get,
     url: base + "/merchants/search",
+  }),
+  listRestaurants: createEndpoint({
+    method: Method.Get,
+    url: base + "/restaurants",
+  }),
+  createRestaurant: createEndpoint({
+    method: Method.Post,
+    url: base + "/restaurants",
   }),
 };

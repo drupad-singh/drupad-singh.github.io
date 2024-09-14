@@ -7,6 +7,7 @@ import { FormGrid } from "./FormGrid";
 export const AddressDetails = () => {
   const form = useForm();
   const pinCode = useField("address.pinCode").input.value;
+  console.log(form.getState());
   useEffect(() => {
     const numeric = parseInt(pinCode);
     if (!isNaN(numeric) && pinCode.length == 6) {

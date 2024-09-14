@@ -34,6 +34,6 @@ export function createStore<Data>(key: string): Storage<Data> {
 
 export const merchantsStorage: Storage<Merchant> =
   createStore("merchantDetails");
-export const restaurantsStorage: Storage<RestaurantDetails[]> =
+export const restaurantsStorage: Storage<RestaurantDetails> =
   createStore("restaurantDetails");
 export const authTokenStorage: Storage<AuthToken> = createStore("authToken");

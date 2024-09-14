@@ -1,12 +1,14 @@
 import Table, { ColumnsType } from "antd/es/table";
 import { RestaurantDetails } from "../../types/RestaurantTypes";
 import { Address } from "../../types/Common";
-import { Button, Skeleton, Space } from "antd";
+import { Button, notification, Skeleton, Space } from "antd";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CodeBlock, dracula } from "react-code-blocks";
 import { restaurantsStorage } from "../../storage/LocalStorage";
 import { ScreenWrapper } from "../../components/ScreenWrapper";
+import { useCallApi } from "../../utils/Api";
+import { Endpoints } from "../../Constants";
 
 const columns = (
   editAction: (r: RestaurantDetails) => void,
@@ -44,6 +46,32 @@ const columns = (
 
 export const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState<RestaurantDetails[]>([]);
+  const callApi = useCallApi();
+  useEffect(() => {
+    callApi({
+      ...Endpoints.listRestaurants(),
+      options: {
+        headers: {
+          "x-merchant-slug": "meghna-foods",
+        },
+      },
+    })
+      .then((response) => {
+        if (response.success) {
+          setRestaurants(restaurants);
+        } else {
+          throw response;
+        }
+      })
+      .catch((e) => {
+        notification.open({
+          type: "error",
+          message: "Failed to fetch restaurants",
+          placement: "bottomRight",
+        });
+        console.error(e);
+      });
+  }, []);
   const [showLoader, setShowLoader] = useState<boolean>(true);
   const navigate = useNavigate();
   const expandedRowRender = (restaurant) => {

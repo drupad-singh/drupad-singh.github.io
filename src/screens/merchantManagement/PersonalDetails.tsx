@@ -16,6 +16,15 @@ export function PersonalDetails() {
           name: "name",
           required: true,
         }),
+        TextInputField({
+          label: "Merchant Slug",
+          name: "slug",
+          required: true,
+          validate: (value: string) => {
+            const isValid = /^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$/.test(value);
+            return !isValid ? "Please Enter hyphen seperated words" : undefined;
+          },
+        }),
         EmailInput({
           label: "Email",
           name: "email",

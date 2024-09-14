@@ -6,7 +6,7 @@ import { useCallApi } from "../../utils/Api";
 import { Endpoints } from "../../Constants";
 import { ScreenWrapper } from "../../components/ScreenWrapper";
 import { useEffect, useState } from "react";
-import useNotification from "antd/es/notification/useNotification";
+import { notification } from "antd";
 
 export function MerchantOnboarding() {
   const [merchantDetails, setMerchantDetails] = useState({
@@ -15,7 +15,6 @@ export function MerchantOnboarding() {
 
   const callApi = useCallApi();
   const [showLoader, setShowLoader] = useState(false);
-  const [notification] = useNotification();
 
   useEffect(() => {
     const details = merchantsStorage.fetch();
@@ -25,16 +24,17 @@ export function MerchantOnboarding() {
   }, []);
 
   const handleFormSubmit = (updatedMerchantDetails: Merchant, props) => {
-    console.log("props")
+    console.log("props");
     setShowLoader(true);
     setMerchantDetails(updatedMerchantDetails);
     merchantsStorage.save(updatedMerchantDetails);
     const endpoint = Endpoints.createMerchant();
-    notification.info({ message: "calling api" });
+    notification.open({ message: "calling api", placement: "bottomRight" });
     callApi({ ...endpoint, options: { body: updatedMerchantDetails } })
       .then((_) => {
         setShowLoader(false);
-        notification.success({
+        notification.open({
+          type: "success",
           message: "Successfully Created new merchant",
           placement: "bottomRight",
         });

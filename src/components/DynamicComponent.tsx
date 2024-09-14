@@ -1,12 +1,4 @@
-import { Spin } from "antd";
-import {
-  PropsWithChildren,
-  PropsWithoutRef,
-  ReactElement,
-  ReactNode,
-  useEffect,
-  useState,
-} from "react";
+import { PropsWithoutRef, ReactElement, useEffect, useState } from "react";
 import ShimmerLoader from "./Shimmer";
 
 type renderProps<data> = {

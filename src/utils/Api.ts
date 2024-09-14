@@ -109,6 +109,7 @@ export const useCallApi = <Data>() => {
       body,
     })
       .then((response: Response) => {
+        console.log("api called at ", method, url);
         return response.json().then((data: JSON) => {
           if (setShowApiLoader) {
             setShowApiLoader(false);
